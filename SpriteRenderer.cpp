@@ -8,22 +8,22 @@
 #include <SDL.h>
 #include <SDL_image.h>
 #include <stdio.h>
-#include "SpriteRenderer.h"
 #include <iostream>
 
+#include "SpriteRenderer.h"
 #include "dirent.h"
-
-
 
 SDL_Texture* spriteHead = NULL;
 SDL_Texture* spriteLeft = NULL;
 SDL_Texture* spriteRight = NULL;
 SDL_Texture* backgroundTexture = NULL;
+SDL_Texture* textBoxTexture = NULL;
 
 #define MAX_SPRITES 1000;
 #define MAX_PATH 256;
 
-
+int textBoxWidth = 500; // Default width for text box.
+int textBoxHeight = 100; // Default height for text box.
 
 struct SpritePart {
 	SDL_Texture* texture;
@@ -35,6 +35,7 @@ struct SpritePart {
 
 Transform monikaTransform = { 0.0f, -20.0f, 1.5f, 1.5f, 0.0f };  // Default transform values for Monika's sprite.
 //Transform right = { 200.0f, 210.0f, 1.0f, 1.0f, 0.0f }; // Default transform values for sprite on right side.
+Transform textBoxTransform = { 500.0f, 500.0f, 1.0f, 1.0f, 0.0f }; // Default transform values for text box.
 
 
 
@@ -86,10 +87,22 @@ void DrawSprites(SDL_Renderer* x, SDL_Texture* spriteHead, SDL_Texture* spriteLe
 }*/
 void LoadBackground(SDL_Renderer* renderer, SpriteBatch* x, int index) {
 	backgroundTexture = x[0].surfaces[index]; // Loads background texture from RAM.
-	SDL_RenderCopy(renderer, backgroundTexture, NULL, NULL);
+	SDL_RenderCopy(renderer, backgroundTexture, NULL, NULL); // NULL destRect means it will render to the whole screen.
+}
+void LoadTextBox(SDL_Renderer* renderer, SpriteBatch* UI, int index) {
+	textBoxTexture = UI[0].surfaces[index];
+
+	SDL_Rect destRect = {
+	(int)textBoxTransform.x,
+	(int)textBoxTransform.y,
+	textBoxWidth,
+	textBoxHeight
+	};
+
+	SDL_RenderCopyEx(renderer, textBoxTexture, NULL, &destRect, 0.0, NULL, SDL_FLIP_NONE); 
 }
 
-void LoadAllTextures(SDL_Renderer* renderer, SpriteBatch* x, SpriteBatch* y, SpriteBatch* z, SpriteBatch* UI) {
+void LoadAllTextures(SDL_Renderer* renderer, SpriteBatch* x, SpriteBatch* y, SpriteBatch* z, SpriteBatch* UI, SpriteBatch* v) {
 	//textureMonika1 = loadTexture(renderer, "images/monika/a.png");		// Default sprite textures.
 	//textureMonika2 = loadTexture(renderer, "images/monika/1l.png");		//
 	//textureMonika3 = loadTexture(renderer, "images/monika/1r.png");		//
@@ -98,6 +111,7 @@ void LoadAllTextures(SDL_Renderer* renderer, SpriteBatch* x, SpriteBatch* y, Spr
 	std::cout << "Number of background sprites: " << x->count << std::endl;
 	std::cout << "Number of monika sprites: " << y->count << std::endl;
 	std::cout << "Number of UI sprites: " << UI->count << std::endl;
+	std::cout << "Number of yuri sprites: " << v->count << std::endl;
 	
 	if (!x) {
 		std::cerr << "SpriteBatch is null" << std::endl;
