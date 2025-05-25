@@ -1,8 +1,6 @@
 // DOKI DOKI LITERATURE CLUB //
 // PS3 PORT // SDL REMIX
-// SUPAHAXOR // 23/05/2025 //
-
-
+// SUPAHAXOR // 25/05/2025 //
 
 #include <SDL.h>
 #include <iostream>
@@ -17,11 +15,11 @@
 
 SpriteBatch* monikaBatch;               // Global variable to hold the monika batch
 SpriteBatch* backgroundBatch;           // Global variable to hold the background batch
-
-SDL_Renderer* renderer;                // Global variable to hold the renderer
-
 SpriteBatch* sayoriBatch;               // Global variable to hold the sayori batch
-SpriteBatch* UIBatch;                  // Global variable to hold the UI batch
+SpriteBatch* yuriBatch;                 // Global variable to hold the yuri batch
+SpriteBatch* UIBatch;                   // Global variable to hold the UI batch
+
+SDL_Renderer* renderer;                 // Global variable to hold the renderer
 
 int s = 2000;
 
@@ -38,7 +36,6 @@ int main(int argc, char* argv[]) {
     SDL_Init(SDL_INIT_AUDIO);
 	initAudio();
     
-
     IMG_Init(IMG_INIT_JPG | IMG_INIT_PNG);
     if (SDL_Init(SDL_INIT_VIDEO) != 0) {
         std::cerr << "SDL_Init Error: " << SDL_GetError() << std::endl;
@@ -78,19 +75,21 @@ int main(int argc, char* argv[]) {
     backgroundBatch = LoadSpriteFolder("images/bg", renderer);
 	sayoriBatch = LoadSpriteFolder("images/sayori", renderer);
 	UIBatch = LoadSpriteFolder("gui", renderer); // Load the UI batch, will require tweaking for folders in the directory
+    yuriBatch = LoadSpriteFolder("images/yuri", renderer);
 
-	LoadAllTextures(renderer, backgroundBatch, monikaBatch, sayoriBatch, UIBatch);          // Kind of pointless but it's a sanity check to make sure everything is loaded correctly.
+	LoadAllTextures(renderer, backgroundBatch, monikaBatch, sayoriBatch, UIBatch, yuriBatch);   // Kind of pointless but it's a sanity check to make sure everything is loaded correctly.
 
 
     SDL_RenderClear(renderer);
     SDL_RenderCopy(renderer, backgroundTexture, NULL, NULL);
-    DrawSprites(renderer, spriteHead, spriteLeft, spriteRight);
+    DrawSprites(renderer, spriteHead, spriteLeft, spriteRight); // Debug - Renders monika 1a.
   
     SDL_RenderPresent(renderer);
     SDL_Delay(5000); // Wait for 5 seconds and then kill the music 
     //stopMusic(s);
-    
 
+    
+   
 	ch_0(renderer); // Call the first chapter function
 
 

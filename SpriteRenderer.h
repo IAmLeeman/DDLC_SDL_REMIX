@@ -18,21 +18,21 @@ extern SDL_Texture* backgroundTexture;
 #include <SDL.h>
 #include <SDL_image.h>
 
-
 struct SpriteBatch {
 	SDL_Texture** surfaces;
 	int count;
-
 };
 
 struct Transform {
 	float x, y;
 	float scaleX, scaleY;
 	float rotation;
+
 };
 
 extern Transform monikaTransform;
 extern Transform right;
+extern Transform textBoxTransform;
 
 int countFilesInFolder(const char* folderpath);
 
@@ -41,7 +41,8 @@ void free_sprite(SpriteBatch* batch);
 
 void DrawSprites(SDL_Renderer* x, SDL_Texture* spriteHead, SDL_Texture* spriteLeft, SDL_Texture* spriteRight);
 void LoadBackground(SDL_Renderer* renderer, SpriteBatch* x, int index);
-void LoadAllTextures(SDL_Renderer* renderer, SpriteBatch* x, SpriteBatch* y, SpriteBatch* z, SpriteBatch* UI);
+void LoadTextBox(SDL_Renderer* renderer, SpriteBatch* UI, int index);
+void LoadAllTextures(SDL_Renderer* renderer, SpriteBatch* x, SpriteBatch* y, SpriteBatch* z, SpriteBatch* UI, SpriteBatch* v);
 void UnloadAllTextures();
 
 SDL_Texture* createSpriteTexture(SDL_Renderer* renderer, int width, int height);
