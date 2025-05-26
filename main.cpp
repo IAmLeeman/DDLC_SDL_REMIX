@@ -1,12 +1,14 @@
 // DOKI DOKI LITERATURE CLUB //
 // PS3 PORT // SDL REMIX
 // SUPAHAXOR // 25/05/2025 //
+// GAME IS COPYRIGHT TO TEAM SALVATO //
 
 #include <SDL.h>
 #include <iostream>
 #include <SDL_image.h>
 #include <SDL_Audio.h>
 #include <SDL_mixer.h>
+#include <SDL_ttf.h>
 
 #include "SpriteRenderer.h"
 #include "SpriteLoader.h"
@@ -30,11 +32,21 @@ bool initAudio() {
 	}
     return true;
 }
+bool initTTF() {                // Initialize the TTF library, will not work on a PS3 but for degbugging purposes it is useful to have this function.
+    if (TTF_Init() == -1) {
+        std::cerr << "SDL_ttf could not initialize! SDL_ttf Error: " << TTF_GetError() << std::endl;
+        return false;
+    }
+    return true;
+}
 
 int main(int argc, char* argv[]) {
 
+    //// YEAH, I FORGOT TO INITIALIZE THE FONT SYSTEM, SUE ME. 
+
     SDL_Init(SDL_INIT_AUDIO);
 	initAudio();
+    initTTF();
     
     IMG_Init(IMG_INIT_JPG | IMG_INIT_PNG);
     if (SDL_Init(SDL_INIT_VIDEO) != 0) {
