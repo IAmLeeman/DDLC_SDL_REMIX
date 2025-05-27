@@ -135,6 +135,7 @@
   <ItemGroup>
     <ClCompile Include="audioDriver.cpp" />
     <ClCompile Include="CharacterCodes.cpp" />
+    <ClCompile Include="DialogueSystem.cpp" />
     <ClCompile Include="main.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
     </ClCompile>
@@ -145,6 +146,7 @@
     <ClInclude Include="audioDriver.h" />
     <ClInclude Include="chapters.h" />
     <ClInclude Include="CharacterCodes.h" />
+    <ClInclude Include="DialogueSystem.h" />
     <ClInclude Include="globals.h" />
     <ClInclude Include="SpriteRenderer.h" />
   </ItemGroup>
