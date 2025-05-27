@@ -23,6 +23,8 @@ SpriteBatch* UIBatch;                   // Global variable to hold the UI batch
 
 SDL_Renderer* renderer;                 // Global variable to hold the renderer
 
+TTF_Font* font;                  // Global variable to hold the font
+
 int s = 2000;
 
 bool initAudio() {
@@ -32,7 +34,7 @@ bool initAudio() {
 	}
     return true;
 }
-bool initTTF() {                // Initialize the TTF library, will not work on a PS3 but for degbugging purposes it is useful to have this function.
+bool initTTF() {                // Initialize the TTF library, will not work on a PS3 but for debugging purposes it is useful to have this function.
     if (TTF_Init() == -1) {
         std::cerr << "SDL_ttf could not initialize! SDL_ttf Error: " << TTF_GetError() << std::endl;
         return false;
@@ -42,11 +44,11 @@ bool initTTF() {                // Initialize the TTF library, will not work on 
 
 int main(int argc, char* argv[]) {
 
-    //// YEAH, I FORGOT TO INITIALIZE THE FONT SYSTEM, SUE ME. 
-
     SDL_Init(SDL_INIT_AUDIO);
 	initAudio();
     initTTF();
+
+    font = TTF_OpenFont("font/Aller_Rg.ttf", 24);
     
     IMG_Init(IMG_INIT_JPG | IMG_INIT_PNG);
     if (SDL_Init(SDL_INIT_VIDEO) != 0) {

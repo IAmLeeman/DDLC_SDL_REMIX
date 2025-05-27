@@ -48,6 +48,9 @@
     <ClCompile Include="CharacterCodes.cpp">
       <Filter>Assets\CharacterCodes</Filter>
     </ClCompile>
+    <ClCompile Include="DialogueSystem.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SpriteRenderer.h">
@@ -63,6 +66,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="CharacterCodes.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DialogueSystem.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
