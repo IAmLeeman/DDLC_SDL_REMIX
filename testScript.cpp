@@ -19,7 +19,7 @@ void ch_0(SDL_Renderer* renderer){
 	
 	SDL_Delay(1000); // Wait for 1 second to show the text box
 	
-	SetText(renderer, "IDI NAHUI BLYAT"); // Set the text to be displayed in the text box, only renders the latest text. FIX
+	//SetText(renderer, "IDI NAHUI BLYAT"); // Set the text to be displayed in the text box, only renders the latest text. FIX
 	LoadTextBox(renderer, UIBatch, 24);
 	SDL_RenderPresent(renderer);
 	// We need to call the residential scene here
