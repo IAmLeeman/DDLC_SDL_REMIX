@@ -12,11 +12,16 @@
 void ch_0(SDL_Renderer* renderer){
 
 	stopMusic(2000); // stop music with a 2 second fadeout
-	
 	SDL_RenderClear(renderer); // clear the screen
-	SDL_RenderPresent(renderer); // This is required because of double buffering, a secret background buffer is cleared but not shown on the screen until this is called, yeah...
-
+	//SDL_RenderPresent(renderer); // This is required because of double buffering, a secret background buffer is cleared but not shown on the screen until this is called, yeah...
+	SetText(renderer, "I LOVE YOU SUPAHAXOR");
+	LoadTextBox(renderer, UIBatch, 24); // Currently takes a default text string
+	
+	SDL_Delay(1000); // Wait for 1 second to show the text box
+	
+	//SetText(renderer, "IDI NAHUI BLYAT"); // Set the text to be displayed in the text box, only renders the latest text. FIX
 	LoadTextBox(renderer, UIBatch, 24);
+	SDL_RenderPresent(renderer);
 	// We need to call the residential scene here
 	//LoadBackground(renderer, backgroundBatch, 30); // Load the background image
 	//scene bg residential_day
