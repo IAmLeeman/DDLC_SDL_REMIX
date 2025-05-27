@@ -9,15 +9,20 @@
 #include <SDL_image.h>
 #include <stdio.h>
 #include <iostream>
+#include <string>
 
 #include "SpriteRenderer.h"
 #include "dirent.h"
+#include "globals.h"
 
 SDL_Texture* spriteHead = NULL;
 SDL_Texture* spriteLeft = NULL;
 SDL_Texture* spriteRight = NULL;
 SDL_Texture* backgroundTexture = NULL;
 SDL_Texture* textBoxTexture = NULL;
+SDL_Texture* textTexture = NULL;
+
+std::string currentText;
 
 #define MAX_SPRITES 1000;
 #define MAX_PATH 256;
@@ -89,6 +94,37 @@ void LoadBackground(SDL_Renderer* renderer, SpriteBatch* x, int index) {
 	backgroundTexture = x[0].surfaces[index]; // Loads background texture from RAM.
 	SDL_RenderCopy(renderer, backgroundTexture, NULL, NULL); // NULL destRect means it will render to the whole screen.
 }
+
+void SetText(SDL_Renderer* renderer, const std::string& newText) {
+	if (newText == currentText) return;
+
+	if (textTexture) {
+		SDL_DestroyTexture(textTexture);
+		textTexture = nullptr;
+	}
+
+	currentText = newText;
+	SDL_Color colour = { 255, 255, 255, 255 }; // White color for the text.
+	
+	if (font == nullptr) {
+		printf("Font is null, cannot render text\n");
+		return;
+	}
+
+	SDL_Surface* textSurface = TTF_RenderText_Solid(font, newText.c_str(), colour);
+
+	if (textSurface == nullptr) {
+		printf("Failed to create text surface: %s\n", TTF_GetError());
+		return;
+	}
+	textTexture = SDL_CreateTextureFromSurface(renderer, textSurface);
+	SDL_FreeSurface(textSurface);
+
+	if (!textTexture) {
+		SDL_Log("Failed to create text texture: %s", SDL_GetError());
+		return;
+	}
+}
 void LoadTextBox(SDL_Renderer* renderer, SpriteBatch* UI, int index) {
 	textBoxTexture = UI[0].surfaces[index];
 
@@ -99,7 +135,21 @@ void LoadTextBox(SDL_Renderer* renderer, SpriteBatch* UI, int index) {
 	textBoxHeight
 	};
 
-	SDL_RenderCopyEx(renderer, textBoxTexture, NULL, &destRect, 0.0, NULL, SDL_FLIP_NONE); 
+	//std::string testText = "SUPAHAXOR, I LOVE YOU!"; // Example text to render in the text box.
+	
+	SDL_RenderCopyEx(renderer, textBoxTexture, NULL, &destRect, 0.0, NULL, SDL_FLIP_NONE);
+	int texW, texH;
+
+	// Position text inside textbox
+	SDL_Rect textRect = {
+		destRect.x + 10,  // Add padding from the left
+		destRect.y + 10,  // Add padding from the top
+		0, 0              // Width/height will be set next
+	};
+	SDL_QueryTexture(textTexture, NULL, NULL, &texW, &texH);
+	textRect.w = texW; // Set width of text rectangle
+	textRect.h = texH; // Set height of text rectangle
+	SDL_RenderCopy(renderer, textTexture, NULL, &textRect);
 }
 
 void LoadAllTextures(SDL_Renderer* renderer, SpriteBatch* x, SpriteBatch* y, SpriteBatch* z, SpriteBatch* UI, SpriteBatch* v) {

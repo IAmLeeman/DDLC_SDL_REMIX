@@ -10,6 +10,7 @@
 
 #include <SDL.h>
 #include "SpriteRenderer.h"
+#include <SDL_ttf.h>
 
 
 extern SpriteBatch* backgroundBatch;
@@ -20,6 +21,7 @@ extern SpriteBatch* natsukiBatch;
 extern SpriteBatch* yuriBatch;
 extern SpriteBatch* UIBatch;
 
+extern TTF_Font* font;
 
 
 #endif
