@@ -1,7 +1,7 @@
 // DOKI DOKI LITERATURE CLUB //
 // PS3 PORT // SDL REMIX
-// SUPAHAXOR // 25/05/2025 //
-// DialogueSystem.h // C++ //
+// SUPAHAXOR // 28/05/2025 //
+// DialogueSystem.cpp // C++ //
 
 #include "DialogueSystem.h"
 #include <vector>

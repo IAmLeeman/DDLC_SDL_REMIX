@@ -96,8 +96,7 @@ void LoadBackground(SDL_Renderer* renderer, SpriteBatch* x, int index) {
 }
 
 void SetText(SDL_Renderer* renderer, const std::string& newText) {
-	if (newText == currentText) return;
-
+	
 	if (textTexture) {
 		SDL_DestroyTexture(textTexture);
 		textTexture = nullptr;
@@ -126,6 +125,9 @@ void SetText(SDL_Renderer* renderer, const std::string& newText) {
 	}
 }
 void LoadTextBox(SDL_Renderer* renderer, SpriteBatch* UI, int index) {
+	
+	SDL_DestroyTexture(textBoxTexture); // Destroy previous texture if it exists
+	//SDL_DestroyTexture(textTexture); // Destroy previous text texture if it exists
 	textBoxTexture = UI[0].surfaces[index];
 
 	SDL_Rect destRect = {
