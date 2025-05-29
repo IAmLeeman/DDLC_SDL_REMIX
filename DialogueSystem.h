@@ -12,6 +12,8 @@
 #include <SDL.h>
 #include <SDL_ttf.h>
 
+
+
 class DialogueSystem {
 public:
 	DialogueSystem(SDL_Renderer* renderer, TTF_Font* font);
