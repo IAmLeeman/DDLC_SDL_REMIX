@@ -3,8 +3,7 @@
 // SUPAHAXOR // 24/05/2025 //
 // globals.h // HEADER //
 
-#pragma once
-// globals.h
+
 #ifndef GLOBALS_H
 #define GLOBALS_H
 

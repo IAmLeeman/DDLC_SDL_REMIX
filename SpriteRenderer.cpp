@@ -24,6 +24,8 @@ SDL_Texture* textTexture = NULL;
 
 std::string currentText;
 
+SDL_Rect textRect;
+
 #define MAX_SPRITES 1000;
 #define MAX_PATH 256;
 
@@ -143,7 +145,7 @@ void LoadTextBox(SDL_Renderer* renderer, SpriteBatch* UI, int index) {
 	int texW, texH;
 
 	// Position text inside textbox
-	SDL_Rect textRect = {
+	textRect = {
 		destRect.x + 10,  // Add padding from the left
 		destRect.y + 10,  // Add padding from the top
 		0, 0              // Width/height will be set next
@@ -154,7 +156,7 @@ void LoadTextBox(SDL_Renderer* renderer, SpriteBatch* UI, int index) {
 	SDL_RenderCopy(renderer, textTexture, NULL, &textRect);
 }
 
-void LoadAllTextures(SDL_Renderer* renderer, SpriteBatch* x, SpriteBatch* y, SpriteBatch* z, SpriteBatch* UI, SpriteBatch* v) {
+void LoadAllTextures(SDL_Renderer* renderer, SpriteBatch* x, SpriteBatch* y, SpriteBatch* z, SpriteBatch* UI, SpriteBatch* v, SpriteBatch* u) {
 	//textureMonika1 = loadTexture(renderer, "images/monika/a.png");		// Default sprite textures.
 	//textureMonika2 = loadTexture(renderer, "images/monika/1l.png");		//
 	//textureMonika3 = loadTexture(renderer, "images/monika/1r.png");		//
@@ -164,6 +166,7 @@ void LoadAllTextures(SDL_Renderer* renderer, SpriteBatch* x, SpriteBatch* y, Spr
 	std::cout << "Number of monika sprites: " << y->count << std::endl;
 	std::cout << "Number of UI sprites: " << UI->count << std::endl;
 	std::cout << "Number of yuri sprites: " << v->count << std::endl;
+	std::cout << "Number of natsuki sprites: " << u->count << std::endl;
 	
 	if (!x) {
 		std::cerr << "SpriteBatch is null" << std::endl;
