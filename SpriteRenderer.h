@@ -44,7 +44,7 @@ void DrawSprites(SDL_Renderer* x, SDL_Texture* spriteHead, SDL_Texture* spriteLe
 void LoadBackground(SDL_Renderer* renderer, SpriteBatch* x, int index);
 void LoadTextBox(SDL_Renderer* renderer, SpriteBatch* UI, int index);
 void SetText(SDL_Renderer* renderer, const std::string& newText);
-void LoadAllTextures(SDL_Renderer* renderer, SpriteBatch* x, SpriteBatch* y, SpriteBatch* z, SpriteBatch* UI, SpriteBatch* v);
+void LoadAllTextures(SDL_Renderer* renderer, SpriteBatch* x, SpriteBatch* y, SpriteBatch* z, SpriteBatch* UI, SpriteBatch* v, SpriteBatch* u);
 void UnloadAllTextures();
 
 SDL_Texture* createSpriteTexture(SDL_Renderer* renderer, int width, int height);

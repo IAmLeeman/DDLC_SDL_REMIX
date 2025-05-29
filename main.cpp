@@ -20,10 +20,11 @@ SpriteBatch* backgroundBatch;           // Global variable to hold the backgroun
 SpriteBatch* sayoriBatch;               // Global variable to hold the sayori batch
 SpriteBatch* yuriBatch;                 // Global variable to hold the yuri batch
 SpriteBatch* UIBatch;                   // Global variable to hold the UI batch
+SpriteBatch* natsukiBatch;              // Global variable to hold the natsuki batch
 
 SDL_Renderer* renderer;                 // Global variable to hold the renderer
 
-TTF_Font* font;                  // Global variable to hold the font
+TTF_Font* font;                         // Global variable to hold the font
 
 int s = 2000;
 
@@ -90,8 +91,10 @@ int main(int argc, char* argv[]) {
 	sayoriBatch = LoadSpriteFolder("images/sayori", renderer);
 	UIBatch = LoadSpriteFolder("gui", renderer); // Load the UI batch, will require tweaking for folders in the directory
     yuriBatch = LoadSpriteFolder("images/yuri", renderer);
+	natsukiBatch = LoadSpriteFolder("images/natsuki", renderer); // Load the natsuki batch, will require tweaking for folders in the directory
 
-	LoadAllTextures(renderer, backgroundBatch, monikaBatch, sayoriBatch, UIBatch, yuriBatch);   // Kind of pointless but it's a sanity check to make sure everything is loaded correctly.
+	LoadAllTextures(renderer, backgroundBatch, monikaBatch, sayoriBatch, UIBatch, yuriBatch, natsukiBatch);   // Kind of pointless but it's a sanity check to make sure 
+    //everything is loaded correctly.
 
 
     SDL_RenderClear(renderer);
