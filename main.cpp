@@ -14,6 +14,7 @@
 #include "SpriteLoader.h"
 #include "audioDriver.h"
 #include "chapters.h"
+#include "DialogueSystem.h"
 
 SpriteBatch* monikaBatch;               // Global variable to hold the monika batch
 SpriteBatch* backgroundBatch;           // Global variable to hold the background batch
@@ -26,6 +27,9 @@ SDL_Renderer* renderer;                 // Global variable to hold the renderer
 
 TTF_Font* font;                         // Global variable to hold the font
 
+DialogueSystem* dialogue = nullptr; // Pointer to the dialogue system
+bool dialogueInitialized = false; // Flag to check if dialogue is initialized
+
 int s = 2000;
 
 bool initAudio() {
@@ -34,6 +38,14 @@ bool initAudio() {
         return false;
 	}
     return true;
+}
+
+void InitDialogue(SDL_Renderer* renderer, TTF_Font* font) {
+    dialogue = new DialogueSystem(renderer, font);
+    dialogue->AddLine("I LOVE YOU SUPAHAXOR");
+    dialogue->AddLine("IDI NAHUI BLYAT");
+    dialogue->AddLine("Ah nu cheeki breeki i v damke"); // Lines for testing purposes, system will read each line at runtime.
+    dialogueInitialized = true; // Set the flag to true
 }
 bool initTTF() {                // Initialize the TTF library, will not work on a PS3 but for debugging purposes it is useful to have this function.
     if (TTF_Init() == -1) {
@@ -48,6 +60,7 @@ int main(int argc, char* argv[]) {
     SDL_Init(SDL_INIT_AUDIO);
 	initAudio();
     initTTF();
+    InitDialogue(renderer, font);
 
     font = TTF_OpenFont("font/Aller_Rg.ttf", 24);
     
@@ -105,9 +118,10 @@ int main(int argc, char* argv[]) {
     SDL_Delay(5000); // Wait for 5 seconds and then kill the music 
     //stopMusic(s);
 
+
     
-   
-	ch_0(renderer); // Call the first chapter function
+    InitDialogue(renderer, font);
+	ch_0(renderer, font); // Call the first chapter function
 
 
     /*
