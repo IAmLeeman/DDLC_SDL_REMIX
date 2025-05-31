@@ -10,6 +10,7 @@
 #include <SDL.h>
 #include "SpriteRenderer.h"
 #include <SDL_ttf.h>
+#include "DialogueSystem.h"
 
 
 extern SpriteBatch* backgroundBatch;
@@ -21,7 +22,7 @@ extern SpriteBatch* yuriBatch;
 extern SpriteBatch* UIBatch;
 
 extern TTF_Font* font;
-
+extern DialogueSystem* dialogue;
 
 #endif
 
