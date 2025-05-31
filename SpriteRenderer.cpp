@@ -25,6 +25,7 @@ SDL_Texture* textTexture = NULL;
 std::string currentText;
 
 SDL_Rect textRect;
+SDL_Rect* TRectPTR = &textRect;
 
 #define MAX_SPRITES 1000;
 #define MAX_PATH 256;
@@ -128,7 +129,7 @@ void SetText(SDL_Renderer* renderer, const std::string& newText) {
 }
 void LoadTextBox(SDL_Renderer* renderer, SpriteBatch* UI, int index) {
 	
-	SDL_DestroyTexture(textBoxTexture); // Destroy previous texture if it exists
+	//SDL_DestroyTexture(textBoxTexture); // Destroy previous texture if it exists
 	//SDL_DestroyTexture(textTexture); // Destroy previous text texture if it exists
 	textBoxTexture = UI[0].surfaces[index];
 
