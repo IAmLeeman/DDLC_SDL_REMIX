@@ -10,7 +10,7 @@
 #include <string>
 #include <iostream>
 
-void ch_0(SDL_Renderer* renderer);
+void ch_0(SDL_Renderer* renderer, TTF_Font* font);
 
 #endif // CHAPTERS_H
 
