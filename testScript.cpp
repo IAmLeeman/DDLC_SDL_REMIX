@@ -18,10 +18,14 @@
 bool running = true;
 SDL_Event event;
 
+
+
 const int FPS = 60;
 const int frameDelay = 1000 / FPS;
 
 void ch_0(SDL_Renderer* renderer, TTF_Font* font){
+
+	CreateTextBox(renderer, UIBatch, 24);
 
 	while (running) {
 		Uint32 frameStart = SDL_GetTicks();
@@ -34,16 +38,16 @@ void ch_0(SDL_Renderer* renderer, TTF_Font* font){
 		}
 
 		SDL_RenderClear(renderer); // clear the screen
-		SDL_Rect* textRect = {}; // Needs to be the actual coordinates for the textbox, currently covers whole screen.
-
-		LoadBackground(renderer, backgroundBatch, 30); // Load the background image
+		
 		LoadTextBox(renderer, UIBatch, 24); // Load the text box
+		//LoadBackground(renderer, backgroundBatch, 30); // Load the background image
+		
 
-		//dialogue->Advance(renderer);
-		//dialogue->Render(renderer, textRect);
+		dialogue->Advance(renderer);
+		dialogue->Render(renderer, &textRect);
 
 		
-		//sayori4p.draw(renderer, sayoriBatch); // Draws Sayori4p sprite
+		sayori4p.draw(renderer, sayoriBatch); // Draws Sayori4p sprite
 		
 
 		
