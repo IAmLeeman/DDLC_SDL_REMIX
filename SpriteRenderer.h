@@ -7,8 +7,11 @@ extern SDL_Texture* spriteHead;
 extern SDL_Texture* spriteLeft;
 extern SDL_Texture* spriteRight; // Hardcoded to test spriteRenderer - will require a spriteLoader at some point.
 extern SDL_Texture* backgroundTexture;
+extern SDL_Rect textRect;
 
-#pragma once
+
+
+
 
 #ifndef SPRITERENDERER_H
 #define SPRITERENDERER_H
@@ -40,6 +43,7 @@ int countFilesInFolder(const char* folderpath);
 SpriteBatch* LoadSpriteFolder(const char* folderpath, SDL_Renderer* renderer);
 void free_sprite(SpriteBatch* batch);
 
+void CreateTextBox(SDL_Renderer* renderer, SpriteBatch* UI, int index);
 void DrawSprites(SDL_Renderer* x, SDL_Texture* spriteHead, SDL_Texture* spriteLeft, SDL_Texture* spriteRight);
 void LoadBackground(SDL_Renderer* renderer, SpriteBatch* x, int index);
 void LoadTextBox(SDL_Renderer* renderer, SpriteBatch* UI, int index);
