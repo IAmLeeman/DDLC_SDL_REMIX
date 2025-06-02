@@ -1,6 +1,6 @@
 // DOKI DOKI LITERATURE CLUB //
 // PS3 PORT // SDL REMIX
-// SUPAHAXOR // 24/05/2025 //
+// SUPAHAXOR // 02/06/2025 //
 // SpriteRenderer.h // HEADER //
 
 extern SDL_Texture* spriteHead;
@@ -35,8 +35,9 @@ struct Transform {
 
 
 extern Transform monikaTransform;
-extern Transform right;
+extern Transform t44;
 extern Transform textBoxTransform;
+extern Transform spriteTransform;
 
 int countFilesInFolder(const char* folderpath);
 
@@ -44,7 +45,7 @@ SpriteBatch* LoadSpriteFolder(const char* folderpath, SDL_Renderer* renderer);
 void free_sprite(SpriteBatch* batch);
 
 void CreateTextBox(SDL_Renderer* renderer, SpriteBatch* UI, int index);
-void DrawSprites(SDL_Renderer* x, SDL_Texture* spriteHead, SDL_Texture* spriteLeft, SDL_Texture* spriteRight);
+void DrawSprites(SDL_Renderer* x, SDL_Texture* spriteHead, SDL_Texture* spriteLeft, SDL_Texture* spriteRight, Transform spriteTransform);
 void LoadBackground(SDL_Renderer* renderer, SpriteBatch* x, int index);
 void LoadTextBox(SDL_Renderer* renderer, SpriteBatch* UI, int index);
 void SetText(SDL_Renderer* renderer, const std::string& newText);
