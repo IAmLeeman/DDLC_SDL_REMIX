@@ -21,11 +21,13 @@ SDL_Texture* spriteRight = NULL;
 SDL_Texture* backgroundTexture = NULL;
 SDL_Texture* textBoxTexture = NULL;
 SDL_Texture* textTexture = NULL;
+SDL_Texture* nameBox = NULL;
 
 std::string currentText;
 
 SDL_Rect destRect;
 SDL_Rect textRect;
+SDL_Rect nameRect;
 
 
 #define MAX_SPRITES 1000;
@@ -33,6 +35,9 @@ SDL_Rect textRect;
 
 int textBoxWidth = 850; // Default width for text box.
 int textBoxHeight = 150; // Default height for text box.
+
+int nameBoxWidth = 50;		// Default width for name box.
+int nameBoxHeight = 20;		// Default height for name box.
 
 struct SpritePart {
 	SDL_Texture* texture;
@@ -86,8 +91,9 @@ void LoadBackground(SDL_Renderer* renderer, SpriteBatch* x, int index) {
 	SDL_RenderCopy(renderer, backgroundTexture, NULL, NULL); // NULL destRect means it will render to the whole screen.
 }
 
-void CreateTextBox(SDL_Renderer* renderer, SpriteBatch* UI, int index) { // Creates text box - should only run once.
-	textBoxTexture = UI[0].surfaces[index];
+void CreateTextBox(SDL_Renderer* renderer, SpriteBatch* UI) { // Creates text box - should only run once.
+	textBoxTexture = UI[0].surfaces[24];
+	nameBox = UI[0].surfaces[19];
 	
 	destRect = {
 	(int)textBoxTransform.x,
@@ -96,7 +102,7 @@ void CreateTextBox(SDL_Renderer* renderer, SpriteBatch* UI, int index) { // Crea
 	textBoxHeight
 	};
 
-	int texW, texH;
+	int texW, texH, nameW, nameH;
 
 	textRect = {
 		destRect.x + 10,  // Add padding from the left
@@ -106,11 +112,23 @@ void CreateTextBox(SDL_Renderer* renderer, SpriteBatch* UI, int index) { // Crea
 	SDL_QueryTexture(textBoxTexture, NULL, NULL, &texW, &texH);
 	textRect.w = texW; // Set width of text rectangle
 	textRect.h = texH; // Set height of text rectangle
+
+	SDL_QueryTexture(nameBox, NULL, NULL, &nameW, &nameH);
+
+	nameRect = {
+		destRect.x + 10,
+		destRect.y - nameH,
+		nameW,
+		nameH
+		
+		
+	};
 }
 
-void LoadTextBox(SDL_Renderer* renderer, SpriteBatch* UI, int index) {
+void LoadTextBox(SDL_Renderer* renderer, SpriteBatch* UI) {
 	
 	SDL_RenderCopy(renderer, textBoxTexture, NULL, &destRect);
+	SDL_RenderCopy(renderer, nameBox, NULL, &nameRect);
 	//SDL_RenderCopy(renderer, textTexture, NULL, &textRect);
 	// Position text inside textbox
 	

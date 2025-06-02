@@ -1,7 +1,7 @@
 
 // DOKI DOKI LITERATURE CLUB //
 // PS3 PORT // SDL REMIX
-// SUPAHAXOR // 01/06/2025 //
+// SUPAHAXOR // 02/06/2025 //
 // GAME IS COPYRIGHT TO TEAM SALVATO //
 
 // Test script for the game engine
@@ -44,7 +44,7 @@ void HandleEventsAndAdvance(SDL_Renderer* renderer, bool& waitingForAdvance) {
 
 void ch_0(SDL_Renderer* renderer, TTF_Font* font){
 
-	CreateTextBox(renderer, UIBatch, 24);
+	CreateTextBox(renderer, UIBatch);
 	
 	while (running) {
 		Uint32 frameStart = SDL_GetTicks();
@@ -63,7 +63,7 @@ void ch_0(SDL_Renderer* renderer, TTF_Font* font){
 		
 		monika1a.draw(renderer, monikaBatch, t44);
 
-		LoadTextBox(renderer, UIBatch, 24); // Load the text box
+		LoadTextBox(renderer, UIBatch); // Load the text box
 		dialogue->Render(renderer, textRect.x, textRect.y);
 
 
