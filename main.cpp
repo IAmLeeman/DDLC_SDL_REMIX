@@ -60,9 +60,10 @@ int main(int argc, char* argv[]) {
     SDL_Init(SDL_INIT_AUDIO);
 	initAudio();
     initTTF();
+    font = TTF_OpenFont("font/Aller_Rg.ttf", 40);  // Problem with the ptsize variable
     InitDialogue(renderer, font);
 
-    font = TTF_OpenFont("font/Aller_Rg.ttf", 24);
+   
     
     IMG_Init(IMG_INIT_JPG | IMG_INIT_PNG);
     if (SDL_Init(SDL_INIT_VIDEO) != 0) {
@@ -112,7 +113,7 @@ int main(int argc, char* argv[]) {
 
     SDL_RenderClear(renderer);
     SDL_RenderCopy(renderer, backgroundTexture, NULL, NULL);
-    DrawSprites(renderer, spriteHead, spriteLeft, spriteRight); // Debug - Renders monika 1a.
+    DrawSprites(renderer, spriteHead, spriteLeft, spriteRight, monikaTransform); // Debug - Renders monika 1a.
   
     SDL_RenderPresent(renderer);
     SDL_Delay(5000); // Wait for 5 seconds and then kill the music 
@@ -124,41 +125,7 @@ int main(int argc, char* argv[]) {
 	ch_0(renderer, font); // Call the first chapter function
 
 
-    /*
-
-    // Load image
-    SDL_Surface* surface = IMG_Load("420.jpg");  // Ensure image.bmp is in your project folder
-    if (!surface) {
-        std::cerr << "SDL_LoadBMP Error: " << SDL_GetError() << std::endl;
-        SDL_DestroyRenderer(renderer);
-        SDL_DestroyWindow(window);
-        SDL_Quit();
-        return 1;
-    }
-
-    SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, surface);
-    SDL_FreeSurface(surface);  // No longer need the surface once we've created the texture.
-
-    if (!texture) {
-        std::cerr << "SDL_CreateTextureFromSurface Error: " << SDL_GetError() << std::endl;
-        SDL_DestroyRenderer(renderer);
-        SDL_DestroyWindow(window);
-        SDL_Quit();
-        return 1;
-    }
-
-    // Render the texture
-    SDL_RenderClear(renderer);
-    SDL_RenderCopy(renderer, texture, NULL, NULL);
-    SDL_RenderPresent(renderer);
-
-    SDL_Delay(10000);  // Wait for 10 seconds to show the image
-
-    SDL_DestroyTexture(texture);
-    SDL_DestroyRenderer(renderer);
-    SDL_DestroyWindow(window);
-    SDL_Quit();
-    */
+   
 
     return 0;
 }

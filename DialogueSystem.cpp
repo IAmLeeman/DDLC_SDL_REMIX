@@ -1,6 +1,6 @@
 // DOKI DOKI LITERATURE CLUB //
 // PS3 PORT // SDL REMIX
-// SUPAHAXOR // 30/05/2025 //
+// SUPAHAXOR // 02/06/2025 //
 // DialogueSystem.cpp // C++ //
 
 #include "DialogueSystem.h"
@@ -54,9 +54,12 @@ void DialogueSystem::Advance(SDL_Renderer* renderer) {
 	
 	}
 }
-void DialogueSystem::Render(SDL_Renderer* renderer, SDL_Rect* textRect) {
+void DialogueSystem::Render(SDL_Renderer* renderer, int x, int y) {
 	if (currentTexture) {
-		SDL_RenderCopy(renderer, currentTexture, nullptr, textRect);
+		int w, h;
+		SDL_QueryTexture(currentTexture, nullptr, nullptr, &w, &h);
+		SDL_Rect destRect = { x,y,w,h };
+		SDL_RenderCopy(renderer, currentTexture, nullptr, &destRect);
 	}
 }
 bool DialogueSystem::IsFinished() const {

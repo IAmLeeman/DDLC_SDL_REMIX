@@ -1,6 +1,6 @@
 // DOKI DOKI LITERATURE CLUB //
 // PS3 PORT // SDL REMIX
-// SUPAHAXOR // 24/05/2025 //
+// SUPAHAXOR // 02/06/2025 //
 // SpriteRenderer.cpp // C++ //
 
 
@@ -31,8 +31,8 @@ SDL_Rect textRect;
 #define MAX_SPRITES 1000;
 #define MAX_PATH 256;
 
-int textBoxWidth = 500; // Default width for text box.
-int textBoxHeight = 100; // Default height for text box.
+int textBoxWidth = 850; // Default width for text box.
+int textBoxHeight = 150; // Default height for text box.
 
 struct SpritePart {
 	SDL_Texture* texture;
@@ -42,13 +42,15 @@ struct SpritePart {
 	int height;
 };
 
-Transform monikaTransform = { 0.0f, -20.0f, 1.5f, 1.5f, 0.0f };  // Default transform values for Monika's sprite.
-//Transform right = { 200.0f, 210.0f, 1.0f, 1.0f, 0.0f }; // Default transform values for sprite on right side.
-Transform textBoxTransform = { 500.0f, 500.0f, 1.0f, 1.0f, 0.0f }; // Default transform values for text box.
+// Screen is 1280 x 720
+Transform monikaTransform = { 0.0f, -20.0f, 1.5f, 1.5f, 0.0f };			// Default transform values for Monika's sprite.
+Transform t44 = { 700.0f, -20.0f, 1.5f, 1.5f, 0.0f };					// Default transform values for sprite on right side.
+Transform textBoxTransform = { 215.0f, 560.0f, 1.0f, 1.0f, 0.0f };		// Default transform values for text box.
+
+Transform spriteTransform;
 
 
-
-void DrawSprites(SDL_Renderer* x, SDL_Texture* spriteHead, SDL_Texture* spriteLeft, SDL_Texture* spriteRight) {  // Change to accept global transform
+void DrawSprites(SDL_Renderer* x, SDL_Texture* spriteHead, SDL_Texture* spriteLeft, SDL_Texture* spriteRight, Transform spriteTransform) {  // Change to accept global transform
 
 	SpritePart monikaParts[] = {
 	{spriteHead, 0, 0, 500, 500},           // Sprite parts do not require any sort of offset, that's pretty handy.
@@ -62,38 +64,23 @@ void DrawSprites(SDL_Renderer* x, SDL_Texture* spriteHead, SDL_Texture* spriteLe
 
 	for (const auto& part : monikaParts) {
 		SDL_Rect dstRect;
-		dstRect.w = static_cast<int>(part.width * monikaTransform.scaleX);
-		dstRect.h = static_cast<int>(part.height * monikaTransform.scaleY);
-		dstRect.x = static_cast<int>(monikaTransform.x + part.offsetX * monikaTransform.scaleX);
-		dstRect.y = static_cast<int>(monikaTransform.y + part.offsetY * monikaTransform.scaleY);
+		dstRect.w = static_cast<int>(part.width * spriteTransform.scaleX);
+		dstRect.h = static_cast<int>(part.height * spriteTransform.scaleY);
+		dstRect.x = static_cast<int>(spriteTransform.x + part.offsetX * spriteTransform.scaleX);
+		dstRect.y = static_cast<int>(spriteTransform.y + part.offsetY * spriteTransform.scaleY);
 
 		SDL_RenderCopyEx(
 			x,
 			part.texture,
 			nullptr,        // srcRect (full texture)
 			&dstRect,
-			monikaTransform.rotation,
+			spriteTransform.rotation,
 			nullptr,        // rotation center (nullptr = center of dstRect)
 			SDL_FLIP_NONE
 		);
 	}
 }
 
-
-
-/*SDL_Texture* loadTexture(SDL_Renderer* renderer, const char* path) {					/// Will not need this to load from RAM.
-	SDL_Surface* surface = IMG_Load(path);
-	if (!surface) {
-		printf("Image failed to load\n");
-		return NULL;
-	}
-	SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, surface);
-	SDL_FreeSurface(surface);
-	if (!texture) {
-		printf("Texture creation failed %s\n", SDL_GetError());
-	}
-	return texture;
-}*/
 void LoadBackground(SDL_Renderer* renderer, SpriteBatch* x, int index) {
 	backgroundTexture = x[0].surfaces[index]; // Loads background texture from RAM.
 	SDL_RenderCopy(renderer, backgroundTexture, NULL, NULL); // NULL destRect means it will render to the whole screen.
@@ -121,7 +108,7 @@ void CreateTextBox(SDL_Renderer* renderer, SpriteBatch* UI, int index) { // Crea
 	textRect.h = texH; // Set height of text rectangle
 }
 
-void LoadTextBox(SDL_Renderer* renderer, SpriteBatch* UI, int index) { // Rewrite this as it recreates the textbox from scratch every frame.
+void LoadTextBox(SDL_Renderer* renderer, SpriteBatch* UI, int index) {
 	
 	SDL_RenderCopy(renderer, textBoxTexture, NULL, &destRect);
 	//SDL_RenderCopy(renderer, textTexture, NULL, &textRect);

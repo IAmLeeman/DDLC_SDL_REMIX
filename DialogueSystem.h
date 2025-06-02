@@ -21,7 +21,7 @@ public:
 
 	void AddLine(const std::string& line);
 	void Advance(SDL_Renderer* renderer);
-	void Render(SDL_Renderer* renderer, SDL_Rect* textRect);
+	void Render(SDL_Renderer* renderer, int x, int y);
 	bool IsFinished() const;
 
 private:

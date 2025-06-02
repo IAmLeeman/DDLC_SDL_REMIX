@@ -1,6 +1,6 @@
 // DOKI DOKI LITERATURE CLUB //
 // PS3 PORT // SDL REMIX
-// SUPAHAXOR // 25/05/2025 //
+// SUPAHAXOR // 02/06/2025 //
 // CharacterCodes.h // HEADER //
 
 #pragma once
@@ -15,7 +15,7 @@ struct CharacterCodes{
 	int a;
 	int b;
 	int c;
-	void draw(SDL_Renderer* renderer, SpriteBatch* batch) const;
+	void draw(SDL_Renderer* renderer, SpriteBatch* batch, Transform spriteTransform) const;
 	
 };
 

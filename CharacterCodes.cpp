@@ -1,6 +1,6 @@
 // DOKI DOKI LITERATURE CLUB //
 // PS3 PORT // SDL REMIX
-// SUPAHAXOR // 25/05/2025 //
+// SUPAHAXOR // 02/06/2025 //
 // CharacterCodes.cpp // C++ //
 
 
@@ -8,8 +8,8 @@
 #include "CharacterCodes.h"
 #include "SpriteRenderer.h"
 
-void CharacterCodes::draw(SDL_Renderer* renderer, SpriteBatch* batch) const {
-	DrawSprites(renderer, batch->surfaces[a], batch->surfaces[b], batch->surfaces[c]);
+void CharacterCodes::draw(SDL_Renderer* renderer, SpriteBatch* batch, Transform spriteTransform) const {
+	DrawSprites(renderer, batch->surfaces[a], batch->surfaces[b], batch->surfaces[c], spriteTransform);
 }
 
 
