@@ -9,7 +9,13 @@
 Debug/
 Release/
 
+#Ignore Copyrighted Music
+
+audio
+
 # User specific files
+
+
 
 *.user
 *.suo
