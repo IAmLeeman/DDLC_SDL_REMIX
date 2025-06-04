@@ -45,6 +45,7 @@ void HandleEventsAndAdvance(SDL_Renderer* renderer, bool& waitingForAdvance) {
 void ch_0(SDL_Renderer* renderer, TTF_Font* font){
 
 	CreateTextBox(renderer, UIBatch);
+
 	
 	while (running) {
 		Uint32 frameStart = SDL_GetTicks();

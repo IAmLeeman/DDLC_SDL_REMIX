@@ -1,6 +1,6 @@
 // DOKI DOKI LITERATURE CLUB //
 // PS3 PORT // SDL REMIX
-// SUPAHAXOR // 02/06/2025 //
+// SUPAHAXOR // 04/06/2025 //
 // SpriteRenderer.cpp // C++ //
 
 
@@ -120,21 +120,16 @@ void CreateTextBox(SDL_Renderer* renderer, SpriteBatch* UI) { // Creates text bo
 		destRect.y - nameH,
 		nameW,
 		nameH
-		
-		
 	};
 }
 
 void LoadTextBox(SDL_Renderer* renderer, SpriteBatch* UI) {
 	
-	SDL_RenderCopy(renderer, textBoxTexture, NULL, &destRect);
-	SDL_RenderCopy(renderer, nameBox, NULL, &nameRect);
-	//SDL_RenderCopy(renderer, textTexture, NULL, &textRect);
-	// Position text inside textbox
-	
+	SDL_RenderCopy(renderer, textBoxTexture, NULL, &destRect);			// Renders text box at the bottom of the screen.
+	SDL_RenderCopy(renderer, nameBox, NULL, &nameRect);					// Renders name box above text box.	
 }
 
-void LoadAllTextures(SDL_Renderer* renderer, SpriteBatch* x, SpriteBatch* y, SpriteBatch* z, SpriteBatch* UI, SpriteBatch* v, SpriteBatch* u) {
+void LoadAllTextures(SDL_Renderer* renderer, SpriteBatch* x, SpriteBatch* y, SpriteBatch* z, SpriteBatch* UI, SpriteBatch* v, SpriteBatch* u) {  // Debug purposes
 	//textureMonika1 = loadTexture(renderer, "images/monika/a.png");		// Default sprite textures.
 	//textureMonika2 = loadTexture(renderer, "images/monika/1l.png");		//
 	//textureMonika3 = loadTexture(renderer, "images/monika/1r.png");		//

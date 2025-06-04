@@ -42,11 +42,11 @@ bool initAudio() {
 
 void InitDialogue(SDL_Renderer* renderer, TTF_Font* font) {
     dialogue = new DialogueSystem(renderer, font);
-    dialogue->AddLine("I LOVE YOU SUPAHAXOR");
-    dialogue->AddLine("IDI NAHUI BLYAT");
-    dialogue->AddLine("Ah nu cheeki breeki i v damke"); // Lines for testing purposes, system will read each line at runtime.
-    dialogue->AddLine("Need to write our names out SUPAHAXOR");
-    dialogue->AddLine("Monika says some shit");
+    dialogue->AddLine("I LOVE YOU SUPAHAXOR", "Sayori");
+    dialogue->AddLine("IDI NAHUI BLYAT", "Monika");
+    dialogue->AddLine("Ah nu cheeki breeki i v damke", "Sayori"); // Lines for testing purposes, system will read each line at runtime.
+    dialogue->AddLine("Need to write our names out SUPAHAXOR", "Monika");
+    dialogue->AddLine("Monika says some shit", " ");
     dialogueInitialized = true; // Set the flag to true
 }
 bool initTTF() {                // Initialize the TTF library, will not work on a PS3 but for debugging purposes it is useful to have this function.

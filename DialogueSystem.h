@@ -19,16 +19,18 @@ public:
 	DialogueSystem(SDL_Renderer* renderer, TTF_Font* font);
 	~DialogueSystem();
 
-	void AddLine(const std::string& line);
+	void AddLine(const std::string& line, const std::string& name);
 	void Advance(SDL_Renderer* renderer);
 	void Render(SDL_Renderer* renderer, int x, int y);
 	bool IsFinished() const;
 
 private:
 	std::vector<std::string> dialogueLines;
+	std::vector<std::string> characterNames;
 	size_t currentLineIndex;
 	SDL_Texture* currentTexture;
 	TTF_Font* font;
+	SDL_Texture* nameTexture;
 
 	void UpdateTextTexture(SDL_Renderer* renderer);
 };
