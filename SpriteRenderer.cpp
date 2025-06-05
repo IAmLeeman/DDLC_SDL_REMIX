@@ -3,8 +3,6 @@
 // SUPAHAXOR // 04/06/2025 //
 // SpriteRenderer.cpp // C++ //
 
-
-
 #include <SDL.h>
 #include <SDL_image.h>
 #include <stdio.h>
@@ -54,7 +52,24 @@ Transform textBoxTransform = { 215.0f, 560.0f, 1.0f, 1.0f, 0.0f };		// Default t
 
 Transform spriteTransform;
 
+SDL_Texture* CreateCharacterTexture(SDL_Renderer* renderer, SDL_Texture* spriteHead, SDL_Texture* spriteLeft, SDL_Texture* spriteRight, Transform spriteTransform, int width, int height) {
+	SDL_Texture* targetTexture = SDL_CreateTexture(renderer, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, width, height);
+	
+	if (!targetTexture) {
+		std::cerr << "Failed to create target texture: " << SDL_GetError() << std::endl;
+		return nullptr;
+	}
+	SDL_Texture* oldTarget = SDL_GetRenderTarget(renderer);
+	SDL_SetRenderTarget(renderer, targetTexture);
 
+	SDL_SetRenderDrawColor(renderer, 0, 0, 0, 0); // Clear with transparent color
+	SDL_RenderClear(renderer);
+
+	DrawSprites(renderer, spriteHead, spriteLeft, spriteRight, monikaTransform); // Draw the sprites onto the target texture
+	SDL_SetRenderTarget(renderer, oldTarget); // Reset the render target
+
+	return targetTexture; // Return the combined texture
+}
 void DrawSprites(SDL_Renderer* x, SDL_Texture* spriteHead, SDL_Texture* spriteLeft, SDL_Texture* spriteRight, Transform spriteTransform) {  // Change to accept global transform
 
 	SpritePart monikaParts[] = {

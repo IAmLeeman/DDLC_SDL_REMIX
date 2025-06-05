@@ -8,8 +8,14 @@
 #include "CharacterCodes.h"
 #include "SpriteRenderer.h"
 
-void CharacterCodes::draw(SDL_Renderer* renderer, SpriteBatch* batch, Transform spriteTransform) const {
-	DrawSprites(renderer, batch->surfaces[a], batch->surfaces[b], batch->surfaces[c], spriteTransform);
+SDL_Texture* CharacterCodes::draw(SDL_Renderer* renderer, SpriteBatch* batch, Transform spriteTransform) const {
+	
+	int width = 500; // Default width
+	int height = 400; // Default height
+
+	return CreateCharacterTexture(renderer, batch->surfaces[a], batch->surfaces[b], batch->surfaces[c], spriteTransform, width, height);
+	// This needs to return a new sprite texture
+
 }
 
 

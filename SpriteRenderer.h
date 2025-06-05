@@ -33,6 +33,7 @@ struct Transform {
 
 };
 
+SDL_Texture* CreateCharacterTexture(SDL_Renderer* renderer, SDL_Texture* spriteHead, SDL_Texture* spriteLeft, SDL_Texture* spriteRight, Transform spriteTransform, int width, int height);
 
 extern Transform monikaTransform;
 extern Transform t44;

@@ -15,7 +15,7 @@ struct CharacterCodes{
 	int a;
 	int b;
 	int c;
-	void draw(SDL_Renderer* renderer, SpriteBatch* batch, Transform spriteTransform) const;
+	SDL_Texture* draw(SDL_Renderer* renderer, SpriteBatch* batch, Transform spriteTransform) const;
 	
 };
 

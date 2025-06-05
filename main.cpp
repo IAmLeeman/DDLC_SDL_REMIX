@@ -42,11 +42,13 @@ bool initAudio() {
 
 void InitDialogue(SDL_Renderer* renderer, TTF_Font* font) {
     dialogue = new DialogueSystem(renderer, font);
-    dialogue->AddLine("I LOVE YOU SUPAHAXOR", "Sayori");
-    dialogue->AddLine("IDI NAHUI BLYAT", "Monika");
-    dialogue->AddLine("Ah nu cheeki breeki i v damke", "Sayori"); // Lines for testing purposes, system will read each line at runtime.
-    dialogue->AddLine("Need to write our names out SUPAHAXOR", "Monika");
-    dialogue->AddLine("Monika says some shit", " ");
+    dialogue->AddLine("I LOVE YOU SUPAHAXOR", "Sayori", sayori4p);
+    dialogue->AddLine("IDI NAHUI BLYAT", "Monika", monika1a);
+    dialogue->AddLine("Ah nu cheeki breeki i v damke", "Sayori", sayori4p); // Lines for testing purposes, system will read each line at runtime.
+    dialogue->AddLine("Need to write our names out SUPAHAXOR", "Monika", monika1b);
+    dialogue->AddLine("Monika says some shit", " ", monika1c);
+    dialogue->AddLine("Where is Yuri?", "Sayori", sayori4p);
+    dialogue->AddLine("Monika couldn't move due to dodgy sprite logic", " ", monika1c);
     dialogueInitialized = true; // Set the flag to true
 }
 bool initTTF() {                // Initialize the TTF library, will not work on a PS3 but for debugging purposes it is useful to have this function.
@@ -126,8 +128,8 @@ int main(int argc, char* argv[]) {
     InitDialogue(renderer, font);
 	ch_0(renderer, font); // Call the first chapter function
 
-
-   
+    // SLEEP TOMORROW BUT TONIGHT GO CRAZY, ALL YOU GOTTA DO IS MEET ME AT THE AHPAHTAHPAHTUH, APAHTAHPAHTUH, APAHTAHPAHTUH. 
+    
 
     return 0;
 }

@@ -18,6 +18,8 @@
 bool running = true;
 bool waitingForAdvance = true;
 
+
+
 SDL_Event event;
 
 const int FPS = 60;
@@ -53,16 +55,19 @@ void ch_0(SDL_Renderer* renderer, TTF_Font* font){
 		HandleEventsAndAdvance(renderer, waitingForAdvance);
 		SDL_RenderClear(renderer); // clear the screen
 
-		LoadBackground(renderer, backgroundBatch, 30); // Load the background image
+		SDL_RenderCopy(renderer, sayoriTexture, NULL, NULL);
+		SDL_RenderCopy(renderer, monikaTexture, NULL, NULL); // Render Sayori and Monika textures
+
+		//LoadBackground(renderer, backgroundBatch, 30); // Load the background image
 		
 		
-		//dialogue->Advance(renderer);
 		
-		sayori4p.draw(renderer, sayoriBatch, monikaTransform); // Draws Sayori4p sprite
+		
+		//sayori4p.draw(renderer, sayoriBatch, monikaTransform); // Draws Sayori4p sprite
 		
 		/// Need to add a sytem to handle the sprite update with the dialogue system
 		
-		monika1a.draw(renderer, monikaBatch, t44);
+		//monika1a.draw(renderer, monikaBatch, t44);
 
 		LoadTextBox(renderer, UIBatch); // Load the text box
 		dialogue->Render(renderer, textRect.x, textRect.y);

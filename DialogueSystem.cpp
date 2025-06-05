@@ -9,9 +9,15 @@
 #include <string>
 #include <SDL.h>
 #include <SDL_ttf.h>
+#include "CharacterCodes.h"
+#include "globals.h"
+#include <iostream>
 
 extern SDL_Texture* textBoxTexture;
+std::vector<CharacterCodes> characterExpressions;
 
+SDL_Texture* monikaTexture = nullptr;
+SDL_Texture* sayoriTexture = nullptr;
 
 DialogueSystem::DialogueSystem(SDL_Renderer* renderer, TTF_Font* font)
 	: currentLineIndex(0), currentTexture(nullptr), font(font), nameTexture(nullptr)
@@ -29,9 +35,10 @@ DialogueSystem::~DialogueSystem() {
 	}
 	
 }
-void DialogueSystem::AddLine(const std::string& line, const std::string& name) {
+void DialogueSystem::AddLine(const std::string& line, const std::string& name, const CharacterCodes& characterExpressions) {
 	dialogueLines.push_back(line);
 	characterNames.push_back(name);
+	characterExpressionsList.push_back(characterExpressions);
 }
 
 void DialogueSystem::Advance(SDL_Renderer* renderer) {
@@ -42,6 +49,21 @@ void DialogueSystem::Advance(SDL_Renderer* renderer) {
 		}
 		const std::string& line = dialogueLines[currentLineIndex];
 		const std::string& name = characterNames[currentLineIndex];
+		const CharacterCodes& expressions = characterExpressionsList[currentLineIndex];
+
+		std::cout << "Expression values: " << expressions.a << ", " 
+			<< expressions.b << ", " << expressions.c << ", " 
+			<< std::endl;
+
+		// Set the character expression based on the current line index
+		if (name == "Monika") {
+			monikaTexture = expressions.draw(renderer, monikaBatch, monikaTransform);
+
+		}
+		if (name == "Sayori") {
+			sayoriTexture = expressions.draw(renderer, sayoriBatch, t44); // Adjust for global transform
+		}
+		
 
 		SDL_Color white = { 255, 255, 255, 255 }; // White colour
 		SDL_Color black = { 0,0,0,0 };				// Black
@@ -71,6 +93,7 @@ void DialogueSystem::Render(SDL_Renderer* renderer, int x, int y) {
 		SDL_QueryTexture(currentTexture, nullptr, nullptr, &w, &h);
 		SDL_Rect destRect = { x,y,w,h };
 		SDL_RenderCopy(renderer, currentTexture, nullptr, &destRect);
+		
 	}
 	if (nameTexture) {
 		int w, h;

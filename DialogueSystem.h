@@ -11,15 +11,17 @@
 #include <string>
 #include <SDL.h>
 #include <SDL_ttf.h>
+#include "CharacterCodes.h"
 
-
+extern SDL_Texture* monikaTexture; // Assuming this is defined elsewhere in your codebase, of course it you AI bastard.
+extern SDL_Texture* sayoriTexture;
 
 class DialogueSystem {
 public:
 	DialogueSystem(SDL_Renderer* renderer, TTF_Font* font);
 	~DialogueSystem();
 
-	void AddLine(const std::string& line, const std::string& name);
+	void AddLine(const std::string& line, const std::string& name, const CharacterCodes& characterExpressions);
 	void Advance(SDL_Renderer* renderer);
 	void Render(SDL_Renderer* renderer, int x, int y);
 	bool IsFinished() const;
@@ -27,10 +29,12 @@ public:
 private:
 	std::vector<std::string> dialogueLines;
 	std::vector<std::string> characterNames;
+	std::vector<CharacterCodes> characterExpressionsList;
 	size_t currentLineIndex;
 	SDL_Texture* currentTexture;
 	TTF_Font* font;
 	SDL_Texture* nameTexture;
+	
 
 	void UpdateTextTexture(SDL_Renderer* renderer);
 };
