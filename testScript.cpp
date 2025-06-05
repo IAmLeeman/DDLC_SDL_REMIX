@@ -18,7 +18,7 @@
 bool running = true;
 bool waitingForAdvance = true;
 
-
+//SDL_Rect testRect = {384, 0 , 2, 2};
 
 SDL_Event event;
 
@@ -48,22 +48,19 @@ void ch_0(SDL_Renderer* renderer, TTF_Font* font){
 
 	CreateTextBox(renderer, UIBatch);
 
-	
 	while (running) {
 		Uint32 frameStart = SDL_GetTicks();
 
 		HandleEventsAndAdvance(renderer, waitingForAdvance);
 		SDL_RenderClear(renderer); // clear the screen
 
-		SDL_RenderCopy(renderer, sayoriTexture, NULL, NULL);
-		SDL_RenderCopy(renderer, monikaTexture, NULL, NULL); // Render Sayori and Monika textures
-
 		//LoadBackground(renderer, backgroundBatch, 30); // Load the background image
+
+		//SDL_RenderCopy(renderer, sayoriTexture, NULL, NULL); // Very odd...
+		//SDL_RenderCopy(renderer, monikaTexture, NULL, NULL); // Render Sayori and Monika textures
+
 		
-		
-		
-		
-		//sayori4p.draw(renderer, sayoriBatch, monikaTransform); // Draws Sayori4p sprite
+		sayori4p.draw(renderer, sayoriBatch, monikaTransform); // Draws Sayori4p sprite
 		
 		/// Need to add a sytem to handle the sprite update with the dialogue system
 		

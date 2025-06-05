@@ -70,7 +70,7 @@ SDL_Texture* CreateCharacterTexture(SDL_Renderer* renderer, SDL_Texture* spriteH
 
 	return targetTexture; // Return the combined texture
 }
-void DrawSprites(SDL_Renderer* x, SDL_Texture* spriteHead, SDL_Texture* spriteLeft, SDL_Texture* spriteRight, Transform spriteTransform) {  // Change to accept global transform
+void DrawSprites(SDL_Renderer* x, SDL_Texture* spriteHead, SDL_Texture* spriteLeft, SDL_Texture* spriteRight, Transform spriteTransform) {
 
 	SpritePart monikaParts[] = {
 	{spriteHead, 0, 0, 500, 500},           // Sprite parts do not require any sort of offset, that's pretty handy.
