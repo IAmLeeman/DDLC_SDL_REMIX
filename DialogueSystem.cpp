@@ -62,6 +62,8 @@ void DialogueSystem::Advance(SDL_Renderer* renderer) {
 		// Set the character expression based on the current line index
 		if (name == "Monika") {
 			monikaTexture = expressions.draw(renderer, monikaBatch, monikaTransform); // Adjust for global transform
+			int texWidth, texHeight;
+			SDL_QueryTexture(monikaTexture, nullptr, nullptr, &texWidth, &texHeight);
 			
 			if (!monikaRect) {
 				monikaRect = new SDL_Rect; // Initialize newRect if it doesn't exist
@@ -70,15 +72,18 @@ void DialogueSystem::Advance(SDL_Renderer* renderer) {
 			std::cout << "Monika Rect X: " << monikaRect->x << std::endl;
 			monikaRect->y = static_cast<int>(monikaTransform.y);
 			std::cout << "Monika Rect Y: " << monikaRect->y << std::endl;
-			monikaRect->w = static_cast<int>(monikaTransform.scaleX);
+			monikaRect->w = static_cast<int>(texWidth);
 			std::cout << "Monika Rect W: " << monikaRect->w << std::endl;
-			monikaRect->h = static_cast<int>(monikaTransform.scaleY);
+			monikaRect->h = static_cast<int>(texHeight);
 			std::cout << "Monika Rect H: " << monikaRect->h << std::endl;
 
 
 		}
 		if (name == "Sayori") {
 			sayoriTexture = expressions.draw(renderer, sayoriBatch, t44); // Adjust for global transform
+
+			int texWidth, texHeight;
+			SDL_QueryTexture(sayoriTexture, nullptr, nullptr, &texWidth, &texHeight);
 
 			if (!sayoriRect) {
 				sayoriRect = new SDL_Rect; // Initialize newRect if it doesn't exist
@@ -87,8 +92,8 @@ void DialogueSystem::Advance(SDL_Renderer* renderer) {
 			
 			sayoriRect->x = static_cast<int>(t44.x);
 			sayoriRect->y = static_cast<int>(t44.y);
-			sayoriRect->w = static_cast<int>(t44.scaleX);
-			sayoriRect->h = static_cast<int>(t44.scaleY);
+			sayoriRect->w = static_cast<int>(texWidth);
+			sayoriRect->h = static_cast<int>(texHeight);
 		}
 		
 

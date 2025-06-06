@@ -1,7 +1,7 @@
 
 // DOKI DOKI LITERATURE CLUB //
 // PS3 PORT // SDL REMIX
-// SUPAHAXOR // 02/06/2025 //
+// SUPAHAXOR // 06/06/2025 //
 // GAME IS COPYRIGHT TO TEAM SALVATO //
 
 // Test script for the game engine
@@ -18,7 +18,7 @@
 bool running = true;
 bool waitingForAdvance = true;
 
-//SDL_Rect testRect = {384, 0 , 2, 2};
+SDL_Rect testRect = { 0, 0 , 1280, 720 };  // SO IT'S (X, Y, WIDTH, HEIGHT) // NOT (X, Y, XZOOM, YZOOM) // THIS AIN'T RENPY //
 
 SDL_Event event;
 
@@ -56,11 +56,11 @@ void ch_0(SDL_Renderer* renderer, TTF_Font* font){
 
 		//LoadBackground(renderer, backgroundBatch, 30); // Load the background image
 
-		//SDL_RenderCopy(renderer, sayoriTexture, NULL, NULL); // Very odd...
-		//SDL_RenderCopy(renderer, monikaTexture, NULL, NULL); // Render Sayori and Monika textures
+		SDL_RenderCopy(renderer, sayoriTexture, NULL, sayoriRect); // Very odd...
+		SDL_RenderCopy(renderer, monikaTexture, NULL, monikaRect); // Render Sayori and Monika textures
 
 		
-		sayori4p.draw(renderer, sayoriBatch, monikaTransform); // Draws Sayori4p sprite
+		//sayori4p.draw(renderer, sayoriBatch, monikaTransform); // Draws Sayori4p sprite
 		
 		/// Need to add a sytem to handle the sprite update with the dialogue system
 		
