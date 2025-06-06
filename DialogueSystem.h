@@ -15,9 +15,11 @@
 
 extern SDL_Texture* monikaTexture; // Assuming this is defined elsewhere in your codebase, of course it you AI bastard.
 extern SDL_Texture* sayoriTexture;
+extern SDL_Texture* yuriTexture;
 
 extern SDL_Rect* monikaRect;
 extern SDL_Rect* sayoriRect;
+extern SDL_Rect* yuriRect;
 
 class DialogueSystem {
 public:

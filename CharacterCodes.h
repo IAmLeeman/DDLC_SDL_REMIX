@@ -22,8 +22,12 @@ struct CharacterCodes{
 extern CharacterCodes monika1a;
 extern CharacterCodes monika1b;
 extern CharacterCodes monika1c;
+extern CharacterCodes monika1d;
+
+extern CharacterCodes sayori1a;
 extern CharacterCodes sayori4p;
 
+extern CharacterCodes yuri1a;
 #endif // CHARACTER_CODES_H
 
 

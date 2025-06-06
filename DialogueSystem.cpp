@@ -18,9 +18,11 @@ std::vector<CharacterCodes> characterExpressions;
 
 SDL_Texture* monikaTexture = nullptr;
 SDL_Texture* sayoriTexture = nullptr;
+SDL_Texture* yuriTexture = nullptr;
 
 SDL_Rect* monikaRect = nullptr;
 SDL_Rect* sayoriRect = nullptr;
+SDL_Rect* yuriRect = nullptr;
 
 
 DialogueSystem::DialogueSystem(SDL_Renderer* renderer, TTF_Font* font)
@@ -94,6 +96,19 @@ void DialogueSystem::Advance(SDL_Renderer* renderer) {
 			sayoriRect->y = static_cast<int>(t44.y);
 			sayoriRect->w = static_cast<int>(texWidth);
 			sayoriRect->h = static_cast<int>(texHeight);
+		}
+		if (name == "Yuri") {
+			yuriTexture = expressions.draw(renderer, yuriBatch, t33); // Adjust for global transform
+			int texWidth, texHeight;
+			SDL_QueryTexture(yuriTexture, nullptr, nullptr, &texWidth, &texHeight);
+			if (!yuriRect) {
+				yuriRect = new SDL_Rect; // Initialize newRect if it doesn't exist
+			}
+
+			yuriRect->x = static_cast<int>(t33.x);
+			yuriRect->y = static_cast<int>(t33.y);
+			yuriRect->w = texWidth;
+			yuriRect->h = texHeight;
 		}
 		
 

@@ -49,6 +49,9 @@ void InitDialogue(SDL_Renderer* renderer, TTF_Font* font) {
     dialogue->AddLine("Monika says some shit", " ", monika1c);
     dialogue->AddLine("Where is Yuri?", "Sayori", sayori4p);
     dialogue->AddLine("Monika couldn't move due to dodgy sprite logic", " ", monika1c);
+	dialogue->AddLine("Monika is now moving", "Monika", monika1d);
+	dialogue->AddLine("Sayori says some shit", "Sayori", sayori1a);  // As it stands, the system will only change expression if a name is provided.
+	dialogue->AddLine("DEBUG", "Yuri", yuri1a); // This is a test line to see if the dialogue system works, it will not be displayed in the game.
     dialogueInitialized = true; // Set the flag to true
 }
 bool initTTF() {                // Initialize the TTF library, will not work on a PS3 but for debugging purposes it is useful to have this function.

@@ -39,6 +39,7 @@ extern Transform monikaTransform;
 extern Transform t44;
 extern Transform textBoxTransform;
 extern Transform spriteTransform;
+extern Transform t33;
 
 int countFilesInFolder(const char* folderpath);
 
