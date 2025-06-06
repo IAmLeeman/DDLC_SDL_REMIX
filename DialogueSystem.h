@@ -1,6 +1,6 @@
 // DOKI DOKI LITERATURE CLUB //
 // PS3 PORT // SDL REMIX
-// SUPAHAXOR // 02/06/2025 //
+// SUPAHAXOR // 06/06/2025 //
 // DialogueSystem.h // HEADER //
 
 #ifndef DIALOGUESYSTEM_H			// You don't need both #ifndef and #pragma once - since this is going on a PS3, it's better to use #ifndef for compatibility
@@ -12,6 +12,7 @@
 #include <SDL.h>
 #include <SDL_ttf.h>
 #include "CharacterCodes.h"
+#include <SDL_mixer.h> // For music handling
 
 extern SDL_Texture* monikaTexture; // Assuming this is defined elsewhere in your codebase, of course it you AI bastard.
 extern SDL_Texture* sayoriTexture;
@@ -21,6 +22,9 @@ extern SDL_Rect* monikaRect;
 extern SDL_Rect* sayoriRect;
 extern SDL_Rect* yuriRect;
 
+extern Mix_Music* music;
+extern Mix_Music* currentMusic; // Current music being played
+
 class DialogueSystem {
 public:
 	DialogueSystem(SDL_Renderer* renderer, TTF_Font* font);
@@ -29,6 +33,7 @@ public:
 	void AddLine(const std::string& line, const std::string& name, const CharacterCodes& characterExpressions);
 	void Advance(SDL_Renderer* renderer);
 	void Render(SDL_Renderer* renderer, int x, int y);
+	void ChangeMusic(const char* file);
 	bool IsFinished() const;
 
 private:

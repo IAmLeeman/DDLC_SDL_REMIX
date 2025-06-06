@@ -52,6 +52,12 @@ void InitDialogue(SDL_Renderer* renderer, TTF_Font* font) {
 	dialogue->AddLine("Monika is now moving", "Monika", monika1d);
 	dialogue->AddLine("Sayori says some shit", "Sayori", sayori1a);  // As it stands, the system will only change expression if a name is provided.
 	dialogue->AddLine("DEBUG", "Yuri", yuri1a); // This is a test line to see if the dialogue system works, it will not be displayed in the game.
+
+	dialogue->ChangeMusic("audio/bgm/1.ogg"); // Change the music to the first track in the game
+
+    // Current main issue is that this runs all at once, so the song is called immediately within the render loop.
+
+	dialogue->AddLine("Song changed to 1.ogg", "Monika", monika1a); // This is a test line to see if the dialogue system works, it will not be displayed in the game.
     dialogueInitialized = true; // Set the flag to true
 }
 bool initTTF() {                // Initialize the TTF library, will not work on a PS3 but for debugging purposes it is useful to have this function.
@@ -82,7 +88,7 @@ int main(int argc, char* argv[]) {
         std::cerr << "SDL could not initialize! SDL_Error: " << SDL_GetError() << std::endl;
         return -1;
     }
-	Mix_Music* music = Mix_LoadMUS("audio/COMEUPOUTDAWAHTA.mp3");
+	music = Mix_LoadMUS("audio/COMEUPOUTDAWAHTA.mp3");
     if (!music) {
         printf("Failed to load music: %s\n", Mix_GetError());
     }

@@ -12,6 +12,7 @@
 #include "CharacterCodes.h"
 #include "globals.h"
 #include <iostream>
+#include <SDL_mixer.h> // For music handling
 
 extern SDL_Texture* textBoxTexture;
 std::vector<CharacterCodes> characterExpressions;
@@ -23,6 +24,9 @@ SDL_Texture* yuriTexture = nullptr;
 SDL_Rect* monikaRect = nullptr;
 SDL_Rect* sayoriRect = nullptr;
 SDL_Rect* yuriRect = nullptr;
+
+Mix_Music* music = nullptr;
+Mix_Music* currentMusic = nullptr;
 
 
 DialogueSystem::DialogueSystem(SDL_Renderer* renderer, TTF_Font* font)
@@ -74,9 +78,9 @@ void DialogueSystem::Advance(SDL_Renderer* renderer) {
 			std::cout << "Monika Rect X: " << monikaRect->x << std::endl;
 			monikaRect->y = static_cast<int>(monikaTransform.y);
 			std::cout << "Monika Rect Y: " << monikaRect->y << std::endl;
-			monikaRect->w = static_cast<int>(texWidth);
+			monikaRect->w = texWidth;
 			std::cout << "Monika Rect W: " << monikaRect->w << std::endl;
-			monikaRect->h = static_cast<int>(texHeight);
+			monikaRect->h = texHeight;
 			std::cout << "Monika Rect H: " << monikaRect->h << std::endl;
 
 
@@ -94,8 +98,8 @@ void DialogueSystem::Advance(SDL_Renderer* renderer) {
 			
 			sayoriRect->x = static_cast<int>(t44.x);
 			sayoriRect->y = static_cast<int>(t44.y);
-			sayoriRect->w = static_cast<int>(texWidth);
-			sayoriRect->h = static_cast<int>(texHeight);
+			sayoriRect->w = texWidth;
+			sayoriRect->h = texHeight;
 		}
 		if (name == "Yuri") {
 			yuriTexture = expressions.draw(renderer, yuriBatch, t33); // Adjust for global transform
@@ -147,6 +151,13 @@ void DialogueSystem::Render(SDL_Renderer* renderer, int x, int y) {
 		SDL_QueryTexture(nameTexture, nullptr, nullptr, &w, &h);
 		SDL_Rect destRect = { x,y-50,w,h };
 		SDL_RenderCopy(renderer, nameTexture, nullptr, &destRect);
+	}
+}
+void DialogueSystem::ChangeMusic(const char* file) {
+	currentMusic = Mix_LoadMUS(file); // load the music file
+	if (music == NULL) {
+		std::cerr << "Failed to load music: " << Mix_GetError() << std::endl;
+		return;
 	}
 }
 bool DialogueSystem::IsFinished() const {

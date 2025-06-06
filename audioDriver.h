@@ -1,9 +1,9 @@
 // DOKI DOKI LITERATURE CLUB //
 // PS3 PORT // SDL REMIX
-// SUPAHAXOR // 24/05/2025 //
+// SUPAHAXOR // 06/06/2025 //
 // audioDriver.h // HEADER //
 
-#pragma once
+
 
 
 #ifndef AUDIODRIVER_H
@@ -11,9 +11,11 @@
 
 
 #include <SDL.h>
+#include <SDL_mixer.h>
+
+
 
 void stopMusic(int s);
-void startMusic(const char* filename);
 
 #endif // AUDIODRIVER_H
 

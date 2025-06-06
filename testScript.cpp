@@ -52,6 +52,11 @@ void ch_0(SDL_Renderer* renderer, TTF_Font* font){
 	while (running) {
 		Uint32 frameStart = SDL_GetTicks();
 
+		if (music != currentMusic) {
+			Mix_PlayMusic(currentMusic, -1); // Play music if it has changed
+		}
+		music = currentMusic; // Update current music
+
 		HandleEventsAndAdvance(renderer, waitingForAdvance);
 		SDL_RenderClear(renderer); // clear the screen
 
