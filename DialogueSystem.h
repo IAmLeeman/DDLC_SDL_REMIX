@@ -17,10 +17,12 @@
 extern SDL_Texture* monikaTexture; // Assuming this is defined elsewhere in your codebase, of course it you AI bastard.
 extern SDL_Texture* sayoriTexture;
 extern SDL_Texture* yuriTexture;
+extern SDL_Texture* natsukiTexture;
 
 extern SDL_Rect* monikaRect;
 extern SDL_Rect* sayoriRect;
 extern SDL_Rect* yuriRect;
+extern SDL_Rect* natsukiRect;
 
 extern Mix_Music* music;
 extern Mix_Music* currentMusic; // Current music being played

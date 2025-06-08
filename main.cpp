@@ -52,10 +52,12 @@ void InitDialogue(SDL_Renderer* renderer, TTF_Font* font) {
 	dialogue->AddLine("Monika is now moving", "Monika", monika1d);
 	dialogue->AddLine("Sayori says some shit", "Sayori", sayori1a);  // As it stands, the system will only change expression if a name is provided.
 	dialogue->AddLine("DEBUG", "Yuri", yuri1a); // This is a test line to see if the dialogue system works, it will not be displayed in the game.
-
+    dialogue->AddLine("C++ gang rise up", "Natsuki", natsuki1a);
 	dialogue->ChangeMusic("audio/bgm/1.ogg"); // Change the music to the first track in the game
+    dialogue->AddLine("Booting into Doki Doki Literature Club...", "Monika", monika5a);
 
     // Current main issue is that this runs all at once, so the song is called immediately within the render loop.
+    // Something called a "lazy loader" is required here.
 
 	dialogue->AddLine("Song changed to 1.ogg", "Monika", monika1a); // This is a test line to see if the dialogue system works, it will not be displayed in the game.
     dialogueInitialized = true; // Set the flag to true
@@ -123,7 +125,7 @@ int main(int argc, char* argv[]) {
 	LoadAllTextures(renderer, backgroundBatch, monikaBatch, sayoriBatch, UIBatch, yuriBatch, natsukiBatch);   // Kind of pointless but it's a sanity check to make sure 
     //everything is loaded correctly.
 
-
+    // Random debug statements here
     SDL_RenderClear(renderer);
     SDL_RenderCopy(renderer, backgroundTexture, NULL, NULL);
     DrawSprites(renderer, spriteHead, spriteLeft, spriteRight, monikaTransform); // Debug - Renders monika 1a.

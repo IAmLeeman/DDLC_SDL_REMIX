@@ -63,11 +63,14 @@ void ch_0(SDL_Renderer* renderer, TTF_Font* font){
 		SDL_SetTextureBlendMode(sayoriTexture, SDL_BLENDMODE_BLEND);  // Ratchet way of doing this, but it works for now
 		SDL_SetTextureBlendMode(monikaTexture, SDL_BLENDMODE_BLEND);
 		SDL_SetTextureBlendMode(yuriTexture, SDL_BLENDMODE_BLEND);
+		SDL_SetTextureBlendMode(natsukiTexture, SDL_BLENDMODE_BLEND);
+		
 		LoadBackground(renderer, backgroundBatch, 30); // Load the background image
 
 		SDL_RenderCopy(renderer, sayoriTexture, NULL, sayoriRect);
 		SDL_RenderCopy(renderer, monikaTexture, NULL, monikaRect); // Render Sayori and Monika textures
 		SDL_RenderCopy(renderer, yuriTexture, NULL, yuriRect);
+		SDL_RenderCopy(renderer, natsukiTexture, NULL, natsukiRect); // Render Natsuki texture
 
 		
 		//sayori4p.draw(renderer, sayoriBatch, monikaTransform); // Draws Sayori4p sprite

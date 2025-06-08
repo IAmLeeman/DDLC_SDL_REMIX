@@ -20,10 +20,12 @@ std::vector<CharacterCodes> characterExpressions;
 SDL_Texture* monikaTexture = nullptr;
 SDL_Texture* sayoriTexture = nullptr;
 SDL_Texture* yuriTexture = nullptr;
+SDL_Texture* natsukiTexture = nullptr;
 
 SDL_Rect* monikaRect = nullptr;
 SDL_Rect* sayoriRect = nullptr;
 SDL_Rect* yuriRect = nullptr;
+SDL_Rect* natsukiRect = nullptr;
 
 Mix_Music* music = nullptr;
 Mix_Music* currentMusic = nullptr;
@@ -113,6 +115,18 @@ void DialogueSystem::Advance(SDL_Renderer* renderer) {
 			yuriRect->y = static_cast<int>(t33.y);
 			yuriRect->w = texWidth;
 			yuriRect->h = texHeight;
+		}
+		if (name == "Natsuki") {
+			natsukiTexture = expressions.draw(renderer, natsukiBatch, t33); // Adjust for global transform
+			int texWidth, texHeight;
+			SDL_QueryTexture(natsukiTexture, nullptr, nullptr, &texWidth, &texHeight);
+			if (!natsukiRect) {
+				natsukiRect = new SDL_Rect; // Initialize newRect if it doesn't exist
+			}
+			natsukiRect->x = static_cast<int>(t33.x);
+			natsukiRect->y = static_cast<int>(t33.y);
+			natsukiRect->w = texWidth;
+			natsukiRect->h = texHeight;
 		}
 		
 

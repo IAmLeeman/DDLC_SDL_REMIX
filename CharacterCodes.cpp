@@ -23,11 +23,14 @@ CharacterCodes monika1a = { 6, 0, 1 };    // {head, left, right}
 CharacterCodes monika1b = { 7, 0, 1 };
 CharacterCodes monika1c = { 8, 0, 1 };
 CharacterCodes monika1d = { 9, 0, 1 };
-
+//CharacterCodes monika5a = { NULL, NULL, 5 };  // Calling this doesn't erase the other sprite // just layer 3 over each other? Ratchet? Yeah.
+CharacterCodes monika5a = { 4, 4, 4 };
 CharacterCodes sayori1a = { 12, 2, 3 };
 CharacterCodes sayori4p = { 34, 6, 7 };
 
 CharacterCodes yuri1a = { 12, 4, 5 };
+
+CharacterCodes natsuki1a = { 5, 4 ,3 };
 
 
 
