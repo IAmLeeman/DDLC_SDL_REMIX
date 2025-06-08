@@ -54,6 +54,9 @@
     <ClCompile Include="..\..\..\cJSON\cJSON.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="newScript-ch0.c">
+      <Filter>Script</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SpriteRenderer.h">

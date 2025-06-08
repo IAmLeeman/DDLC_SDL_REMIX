@@ -15,7 +15,7 @@
 #include "audioDriver.h"
 #include "chapters.h"
 #include "DialogueSystem.h"
-#include "CJSON.h" // Include cJSON for lazy loading
+#include "cJSON.h" // Include cJSON for lazy loading
 
 SpriteBatch* monikaBatch;               // Global variable to hold the monika batch
 SpriteBatch* backgroundBatch;           // Global variable to hold the background batch
