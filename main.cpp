@@ -1,6 +1,6 @@
 // DOKI DOKI LITERATURE CLUB //
 // PS3 PORT // SDL REMIX
-// SUPAHAXOR // 02/06/2025 //
+// SUPAHAXOR // 08/06/2025 //
 // GAME IS COPYRIGHT TO TEAM SALVATO //
 
 #include <SDL.h>
@@ -15,6 +15,7 @@
 #include "audioDriver.h"
 #include "chapters.h"
 #include "DialogueSystem.h"
+#include "CJSON.h" // Include cJSON for lazy loading
 
 SpriteBatch* monikaBatch;               // Global variable to hold the monika batch
 SpriteBatch* backgroundBatch;           // Global variable to hold the background batch
@@ -56,8 +57,11 @@ void InitDialogue(SDL_Renderer* renderer, TTF_Font* font) {
 	dialogue->ChangeMusic("audio/bgm/1.ogg"); // Change the music to the first track in the game
     dialogue->AddLine("Booting into Doki Doki Literature Club...", "Monika", monika5a);
 
+    // Debug mode over //
+
     // Current main issue is that this runs all at once, so the song is called immediately within the render loop.
     // Something called a "lazy loader" is required here.
+    // Install cJSON to create the lazy loader.
 
 	dialogue->AddLine("Song changed to 1.ogg", "Monika", monika1a); // This is a test line to see if the dialogue system works, it will not be displayed in the game.
     dialogueInitialized = true; // Set the flag to true

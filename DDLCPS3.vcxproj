@@ -108,7 +108,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\SDL2_image-2.8.8\include;C:\Users\allan\vcpkg\installed\x64-windows\include\SDL2;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\SDL2_image-2.8.8\include;C:\Users\allan\cJSON;C:\Users\allan\vcpkg\installed\x64-windows\include\SDL2;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -133,6 +133,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\cJSON\cJSON.c" />
     <ClCompile Include="audioDriver.cpp" />
     <ClCompile Include="CharacterCodes.cpp" />
     <ClCompile Include="DialogueSystem.cpp" />
@@ -143,6 +144,7 @@
     <ClCompile Include="testScript.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\cJSON\cJSON.h" />
     <ClInclude Include="audioDriver.h" />
     <ClInclude Include="chapters.h" />
     <ClInclude Include="CharacterCodes.h" />
