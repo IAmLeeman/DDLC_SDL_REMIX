@@ -13,6 +13,7 @@
 #include "globals.h"
 #include <iostream>
 #include <SDL_mixer.h> // For music handling
+#include <fstream> // For file handling
 
 extern SDL_Texture* textBoxTexture;
 std::vector<CharacterCodes> characterExpressions;
@@ -176,4 +177,17 @@ void DialogueSystem::ChangeMusic(const char* file) {
 }
 bool DialogueSystem::IsFinished() const {
 	return currentLineIndex >= dialogueLines.size();
+}
+
+void saveToFile(const std::string& filename, const std::string content) {
+	std::ofstream outFile(filename);
+
+	if (!outFile) {
+		std::cerr << "Error opening file for writing: " << filename << std::endl;
+		return;
+	}
+
+	outFile << content;
+	outFile.close();
+
 }

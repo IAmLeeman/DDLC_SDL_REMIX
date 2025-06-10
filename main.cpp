@@ -33,6 +33,7 @@ bool dialogueInitialized = false; // Flag to check if dialogue is initialized
 
 int s = 2000;
 
+
 bool initAudio() {
     if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048) < 0) {
         std::cerr << "SDL_mixer could not initialize! SDL_mixer Error: " << Mix_GetError() << std::endl;
@@ -56,6 +57,7 @@ void InitDialogue(SDL_Renderer* renderer, TTF_Font* font) {
     dialogue->AddLine("C++ gang rise up", "Natsuki", natsuki1a);
 	dialogue->ChangeMusic("audio/bgm/1.ogg"); // Change the music to the first track in the game
     dialogue->AddLine("Booting into Doki Doki Literature Club...", "Monika", monika5a);
+   
 
     // Debug mode over //
 

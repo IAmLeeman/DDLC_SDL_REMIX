@@ -1,6 +1,8 @@
 
 #include "cJSON.h"
 
+
+
 const char* dialogues[] = {
 
 	"{\"music\": \"2.ogg\"}",
@@ -16,3 +18,4 @@ const char* dialogues[] = {
 	"{\"dialogue\":\"Heeeeeeeyyy!!\", \"character\" : \"Sayori\"}",
 	"{\"dialogue\":\"Heeeeeeeyyy!!\", \"character\" : \"Sayori\"}",
 };
+

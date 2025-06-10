@@ -14,9 +14,12 @@
 #include "globals.h"
 #include "CharacterCodes.h"
 #include "DialogueSystem.h"
+#include "cJSON.h"
 
 bool running = true;
 bool waitingForAdvance = true;
+
+int index = 0; // Index for dialogue lines
 
 //SDL_Rect testRect = { 0, 0 , 1280, 720 };  // SO IT'S (X, Y, WIDTH, HEIGHT) // NOT (X, Y, XZOOM, YZOOM) // THIS AIN'T RENPY //
 
@@ -25,6 +28,20 @@ SDL_Event event;
 const int FPS = 60;
 const int frameDelay = 1000 / FPS;
 
+void parseNewLine(const char* dialogue[], int index) {
+
+	cJSON* root = cJSON_Parse(dialogue[index]);
+
+	if (dialogue[index] == nullptr) {
+		return; // No more dialogue to parse
+	}
+	cJSON* speaker = cJSON_GetObjectItem(root, "character");
+	cJSON* speakerDialogue = cJSON_GetObjectItem(root, "dialogue");
+	cJSON* sprite = cJSON_GetObjectItem(root, "sprite");
+	index++;
+
+}
+
 void HandleEventsAndAdvance(SDL_Renderer* renderer, bool& waitingForAdvance) {
 	
 	while (SDL_PollEvent(&event)) {
@@ -32,8 +49,10 @@ void HandleEventsAndAdvance(SDL_Renderer* renderer, bool& waitingForAdvance) {
 			running = false;
 		}
 		if (event.type == SDL_MOUSEBUTTONDOWN && waitingForAdvance) {
+
 			if (event.button.button == SDL_BUTTON_LEFT) {
 				dialogue->Advance(renderer);
+				parseNewLine(dialogues, index);
 				waitingForAdvance = false;
 			}
 
@@ -44,10 +63,10 @@ void HandleEventsAndAdvance(SDL_Renderer* renderer, bool& waitingForAdvance) {
 	}
 }
 
-void ch_0(SDL_Renderer* renderer, TTF_Font* font){
+void ch_0(SDL_Renderer* renderer, TTF_Font* font) {
 
 	CreateTextBox(renderer, UIBatch);
-	 // Set blend mode for Sayori texture
+	// Set blend mode for Sayori texture
 
 	while (running) {
 		Uint32 frameStart = SDL_GetTicks();
@@ -64,7 +83,7 @@ void ch_0(SDL_Renderer* renderer, TTF_Font* font){
 		SDL_SetTextureBlendMode(monikaTexture, SDL_BLENDMODE_BLEND);
 		SDL_SetTextureBlendMode(yuriTexture, SDL_BLENDMODE_BLEND);
 		SDL_SetTextureBlendMode(natsukiTexture, SDL_BLENDMODE_BLEND);
-		
+
 		LoadBackground(renderer, backgroundBatch, 30); // Load the background image
 
 		SDL_RenderCopy(renderer, sayoriTexture, NULL, sayoriRect);
@@ -72,11 +91,11 @@ void ch_0(SDL_Renderer* renderer, TTF_Font* font){
 		SDL_RenderCopy(renderer, yuriTexture, NULL, yuriRect);
 		SDL_RenderCopy(renderer, natsukiTexture, NULL, natsukiRect); // Render Natsuki texture
 
-		
+
 		//sayori4p.draw(renderer, sayoriBatch, monikaTransform); // Draws Sayori4p sprite
-		
+
 		/// Need to add a sytem to handle the sprite update with the dialogue system
-		
+
 		//monika1a.draw(renderer, monikaBatch, t44);
 
 		LoadTextBox(renderer, UIBatch); // Load the text box
@@ -84,10 +103,12 @@ void ch_0(SDL_Renderer* renderer, TTF_Font* font){
 
 
 		SDL_RenderPresent(renderer); // Present the renderer
-		
+
 		Uint32 frameTime = SDL_GetTicks() - frameStart;
 		if (frameTime < frameDelay) {
 			SDL_Delay(frameDelay - frameTime);
 		}
 	}
 }
+
+
