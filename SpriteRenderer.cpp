@@ -18,10 +18,8 @@ SDL_Texture* spriteLeft = NULL;
 SDL_Texture* spriteRight = NULL;
 SDL_Texture* backgroundTexture = NULL;
 SDL_Texture* textBoxTexture = NULL;
-SDL_Texture* textTexture = NULL;
-SDL_Texture* nameBox = NULL;
 
-std::string currentText;
+SDL_Texture* nameBox = NULL;
 
 SDL_Rect destRect;
 SDL_Rect textRect;

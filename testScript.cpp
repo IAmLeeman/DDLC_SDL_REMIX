@@ -52,6 +52,7 @@ void parseNewLine(const char* dialogues[], int& index) {
 	
 	std::cout << "Index incremented to: " << index << std::endl;
 	index++;
+	cJSON_Delete(root);
 	return;
 	
 

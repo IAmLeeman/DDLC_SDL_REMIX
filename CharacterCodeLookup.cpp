@@ -19,7 +19,7 @@ static std::unordered_map<std::string, CharacterCodes> characterCodeMap = {
 
 };
 
-// This YandereDev looking stuff is needed since the cJSON returns a string.
+// This YandereDev looking stuff is needed since the cJSON returns a string. Yeah, I don't like it either but I can't figure another way out.
 
 CharacterCodes getCharacterCodes(const std::string& name) {
 	auto it = characterCodeMap.find(name);

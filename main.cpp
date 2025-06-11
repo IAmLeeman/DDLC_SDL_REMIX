@@ -58,9 +58,7 @@ void InitDialogue(SDL_Renderer* renderer, TTF_Font* font) {
     dialogue->AddLine("C++ gang rise up", "Natsuki", natsuki1a);
 	dialogue->ChangeMusic("audio/bgm/1.ogg"); // Change the music to the first track in the game
     dialogue->AddLine("Booting into Doki Doki Literature Club...", "Monika", monika5a);
-    dialogue->AddLine("For some reason this will not work when called elsewhere", "Yuri", yuri1a);
-   
-   
+ 
     // Debug mode over //
 
     // Current main issue is that this runs all at once, so the song is called immediately within the render loop.
@@ -83,7 +81,7 @@ int main(int argc, char* argv[]) {
     SDL_Init(SDL_INIT_AUDIO);
 	initAudio();
     initTTF();
-    font = TTF_OpenFont("font/Aller_Rg.ttf", 40);  // Problem with the ptsize variable
+    font = TTF_OpenFont("font/Aller_Rg.ttf", 40);
     InitDialogue(renderer, font);
 
    

@@ -134,7 +134,10 @@ void DialogueSystem::Advance(SDL_Renderer* renderer) {
 		SDL_Color white = { 255, 255, 255, 255 }; // White colour
 		SDL_Color black = { 0,0,0,0 };				// Black
 
-		SDL_Surface* surface = TTF_RenderText_Solid(font, line.c_str(), white);
+		int wrapLength = 800;
+
+		
+		SDL_Surface* surface = TTF_RenderText_Blended_Wrapped(font, line.c_str(), white, wrapLength);
 		SDL_Surface* nameSurface = TTF_RenderText_Solid(font, name.c_str(), black);
 
 		if (!surface || !nameSurface) {
@@ -156,7 +159,9 @@ void DialogueSystem::Advance(SDL_Renderer* renderer) {
 void DialogueSystem::Render(SDL_Renderer* renderer, int x, int y) {
 	if (currentTexture) {
 		int w, h;
+		
 		SDL_QueryTexture(currentTexture, nullptr, nullptr, &w, &h);
+		
 		SDL_Rect destRect = { x,y,w,h };
 		SDL_RenderCopy(renderer, currentTexture, nullptr, &destRect);
 		
