@@ -1,9 +1,8 @@
 // DOKI DOKI LITERATURE CLUB //
 // PS3 PORT // SDL REMIX
-// SUPAHAXOR // 02/06/2025 //
+// SUPAHAXOR // 11/06/2025 //
 // CharacterCodes.h // HEADER //
 
-#pragma once
 
 #ifndef CHARACTER_CODES_H
 #define CHARACTER_CODES_H
@@ -25,6 +24,7 @@ extern CharacterCodes monika1b;
 extern CharacterCodes monika1c;
 extern CharacterCodes monika1d;
 extern CharacterCodes monika5a;
+extern CharacterCodes monika5b;
 
 extern CharacterCodes sayori1a;
 extern CharacterCodes sayori4p;

@@ -1,7 +1,7 @@
 
 // DOKI DOKI LITERATURE CLUB //
 // PS3 PORT // SDL REMIX
-// SUPAHAXOR // 06/06/2025 //
+// SUPAHAXOR // 11/06/2025 //
 // GAME IS COPYRIGHT TO TEAM SALVATO //
 
 // Test script for the game engine
@@ -15,6 +15,7 @@
 #include "CharacterCodes.h"
 #include "DialogueSystem.h"
 #include "cJSON.h"
+#include "characterCodeLookup.h"
 
 bool running = true;
 bool waitingForAdvance = true;
@@ -28,7 +29,7 @@ SDL_Event event;
 const int FPS = 60;
 const int frameDelay = 1000 / FPS;
 
-void parseNewLine(const char* dialogues[], int index) {
+void parseNewLine(const char* dialogues[], int& index) {
 
 	if (dialogues[index] == nullptr) {
 		return; // No more dialogue to parse
@@ -41,11 +42,18 @@ void parseNewLine(const char* dialogues[], int index) {
 
 	std::string lineStr = (text && cJSON_IsString(text)) ? text->valuestring: "";
 	std::string charName = (speaker && cJSON_IsString(speaker)) ? speaker->valuestring : "";
-	
+	std::string spriteStr = (sprite && cJSON_IsString(sprite)) ? sprite->valuestring : "";
 
-	//dialogue->AddLine(lineStr, charName, sprite); // sprite is not a string in this but a CharacterCode.
+	CharacterCodes anotherOne = getCharacterCodes(spriteStr);
+
 	
+	dialogue->AddLine(lineStr, charName, anotherOne); // sprite is not a string in this but a CharacterCode.
+	std::cout << "Line added: " << lineStr << " by " << charName << " with sprite " << spriteStr << std::endl;
+	
+	std::cout << "Index incremented to: " << index << std::endl;
 	index++;
+	return;
+	
 
 }
 
@@ -58,8 +66,9 @@ void HandleEventsAndAdvance(SDL_Renderer* renderer, bool& waitingForAdvance) {
 		if (event.type == SDL_MOUSEBUTTONDOWN && waitingForAdvance) {
 
 			if (event.button.button == SDL_BUTTON_LEFT) {
-				dialogue->Advance(renderer);
 				parseNewLine(dialogues, index);
+				dialogue->Advance(renderer);
+				
 				waitingForAdvance = false;
 			}
 

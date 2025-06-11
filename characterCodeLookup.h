@@ -5,6 +5,6 @@
 #include <string>
 #include "CharacterCodes.h"
 
-CharacterCodes GetCharacterCodeFromString(const std::string& name);
+CharacterCodes getCharacterCodes(const std::string& name);
 
 #endif// CHARACTER_CODE_LOOKUP_H
