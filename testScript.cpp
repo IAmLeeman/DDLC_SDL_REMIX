@@ -36,9 +36,21 @@ void parseNewLine(const char* dialogues[], int& index) {
 	}
 	cJSON* root = cJSON_Parse(dialogues[index]);
 
+	cJSON* music = cJSON_GetObjectItem(root, "music");
+	if (music && cJSON_IsString(music)) {
+		std::string musicPath = music->valuestring;
+		std::cout << "Music switching to: " << musicPath << std::endl;
+		dialogue->ChangeMusic(music->valuestring);
+		index++;
+		cJSON_Delete(root); // Clean up the JSON object
+		return;
+	}
+
 	cJSON* speaker = cJSON_GetObjectItem(root, "character");
 	cJSON* text = cJSON_GetObjectItem(root, "text");
 	cJSON* sprite = cJSON_GetObjectItem(root, "sprite"); // This puts in a string of "sayori4p" or "monika1a" etc, which is actually a CharacterCode enum value.
+
+	
 
 	std::string lineStr = (text && cJSON_IsString(text)) ? text->valuestring: "";
 	std::string charName = (speaker && cJSON_IsString(speaker)) ? speaker->valuestring : "";

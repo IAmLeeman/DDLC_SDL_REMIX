@@ -56,7 +56,7 @@ void InitDialogue(SDL_Renderer* renderer, TTF_Font* font) {
 	dialogue->AddLine("Sayori says some shit", "Sayori", sayori1a);  // As it stands, the system will only change expression if a name is provided.
 	dialogue->AddLine("DEBUG", "Yuri", yuri1a); // This is a test line to see if the dialogue system works, it will not be displayed in the game.
     dialogue->AddLine("C++ gang rise up", "Natsuki", natsuki1a);
-	dialogue->ChangeMusic("audio/bgm/1.ogg"); // Change the music to the first track in the game
+	//dialogue->ChangeMusic("audio/bgm/1.ogg"); // Change the music to the first track in the game
     dialogue->AddLine("Booting into Doki Doki Literature Club...", "Monika", monika5a);
  
     // Debug mode over //
@@ -81,7 +81,7 @@ int main(int argc, char* argv[]) {
     SDL_Init(SDL_INIT_AUDIO);
 	initAudio();
     initTTF();
-    font = TTF_OpenFont("font/Aller_Rg.ttf", 40);
+    font = TTF_OpenFont("font/Aller_Rg.ttf", 24);
     InitDialogue(renderer, font);
 
    
