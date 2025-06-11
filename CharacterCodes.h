@@ -10,6 +10,7 @@
 
 #include <SDL.h>
 #include "SpriteRenderer.h"
+#include <string>
 
 struct CharacterCodes{
 	int a;

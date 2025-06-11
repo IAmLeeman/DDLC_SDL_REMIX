@@ -57,6 +57,9 @@
     <ClCompile Include="newScript-ch0.c">
       <Filter>Script</Filter>
     </ClCompile>
+    <ClCompile Include="CharacterCodeLookup.cpp">
+      <Filter>Assets\CharacterCodes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SpriteRenderer.h">
@@ -78,6 +81,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\cJSON\cJSON.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="characterCodeLookup.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

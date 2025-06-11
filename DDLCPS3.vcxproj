@@ -135,6 +135,7 @@
   <ItemGroup>
     <ClCompile Include="..\..\..\cJSON\cJSON.c" />
     <ClCompile Include="audioDriver.cpp" />
+    <ClCompile Include="CharacterCodeLookup.cpp" />
     <ClCompile Include="CharacterCodes.cpp" />
     <ClCompile Include="DialogueSystem.cpp" />
     <ClCompile Include="main.cpp">
@@ -148,6 +149,7 @@
     <ClInclude Include="..\..\..\cJSON\cJSON.h" />
     <ClInclude Include="audioDriver.h" />
     <ClInclude Include="chapters.h" />
+    <ClInclude Include="characterCodeLookup.h" />
     <ClInclude Include="CharacterCodes.h" />
     <ClInclude Include="DialogueSystem.h" />
     <ClInclude Include="globals.h" />

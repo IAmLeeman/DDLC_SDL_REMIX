@@ -28,16 +28,23 @@ SDL_Event event;
 const int FPS = 60;
 const int frameDelay = 1000 / FPS;
 
-void parseNewLine(const char* dialogue[], int index) {
+void parseNewLine(const char* dialogues[], int index) {
 
-	cJSON* root = cJSON_Parse(dialogue[index]);
-
-	if (dialogue[index] == nullptr) {
+	if (dialogues[index] == nullptr) {
 		return; // No more dialogue to parse
 	}
+	cJSON* root = cJSON_Parse(dialogues[index]);
+
 	cJSON* speaker = cJSON_GetObjectItem(root, "character");
-	cJSON* speakerDialogue = cJSON_GetObjectItem(root, "dialogue");
-	cJSON* sprite = cJSON_GetObjectItem(root, "sprite");
+	cJSON* text = cJSON_GetObjectItem(root, "text");
+	cJSON* sprite = cJSON_GetObjectItem(root, "sprite"); // This puts in a string of "sayori4p" or "monika1a" etc, which is actually a CharacterCode enum value.
+
+	std::string lineStr = (text && cJSON_IsString(text)) ? text->valuestring: "";
+	std::string charName = (speaker && cJSON_IsString(speaker)) ? speaker->valuestring : "";
+	
+
+	//dialogue->AddLine(lineStr, charName, sprite); // sprite is not a string in this but a CharacterCode.
+	
 	index++;
 
 }
