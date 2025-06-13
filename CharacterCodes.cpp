@@ -1,6 +1,6 @@
 // DOKI DOKI LITERATURE CLUB //
 // PS3 PORT // SDL REMIX
-// SUPAHAXOR // 06/06/2025 //
+// SUPAHAXOR // 12/06/2025 //
 // CharacterCodes.cpp // C++ //
 
 
@@ -29,6 +29,7 @@ CharacterCodes monika5b = { 5, 5, 5 };
 
 CharacterCodes sayori1a = { 12, 2, 3 };
 CharacterCodes sayori4p = { 34, 6, 7 };
+CharacterCodes sayori5c = { 10,10,10 };
 
 CharacterCodes yuri1a = { 12, 4, 5 };
 

@@ -1,3 +1,7 @@
+// DOKI DOKI LITERATURE CLUB //
+// PS3 PORT // SDL REMIX
+// SUPAHAXOR // 12/06/2025 //
+// CharacterCodeLookup.cpp // C++ //
 
 #include "characterCodeLookup.h"
 #include <unordered_map>
@@ -13,6 +17,7 @@ static std::unordered_map<std::string, CharacterCodes> characterCodeMap = {
 
 	{"sayori1a", sayori1a},
 	{"sayori4p", sayori4p},
+	{"sayori5c", sayori5c},
 
 	{"natsuki1a", natsuki1a},
 	{"yuri1a", yuri1a}
