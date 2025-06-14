@@ -29,6 +29,7 @@ extern CharacterCodes monika5b;
 extern CharacterCodes sayori1a;
 extern CharacterCodes sayori4p;
 extern CharacterCodes sayori5c;
+extern CharacterCodes sayori1q;
 
 extern CharacterCodes yuri1a;
 

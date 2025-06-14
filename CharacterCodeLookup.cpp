@@ -17,6 +17,7 @@ static std::unordered_map<std::string, CharacterCodes> characterCodeMap = {
 	{"monika5b", monika5b},
 
 	{"sayori1a", sayori1a},
+	{"sayori1q", sayori1q},
 	{"sayori4p", sayori4p},
 	{"sayori5c", sayori5c},
 

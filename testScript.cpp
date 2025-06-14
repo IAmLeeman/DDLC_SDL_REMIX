@@ -16,7 +16,8 @@
 #include "DialogueSystem.h"
 #include "cJSON.h"
 #include "characterCodeLookup.h"
-#include <optional>
+//#include <optional>
+#include <string>
 
 bool running = true;
 bool waitingForAdvance = true;
@@ -29,6 +30,8 @@ SDL_Event event;
 
 const int FPS = 60;
 const int frameDelay = 1000 / FPS;
+
+static std::string lastSpriteStr = "";
 
 void parseNewLine(const char* dialogues[], int& index) {
 
@@ -51,11 +54,20 @@ void parseNewLine(const char* dialogues[], int& index) {
 	cJSON* text = cJSON_GetObjectItem(root, "text");
 	cJSON* sprite = cJSON_GetObjectItem(root, "sprite"); // This puts in a string of "sayori4p" or "monika1a" etc, which is actually a CharacterCode enum value.
 
-	
-
 	std::string lineStr = (text && cJSON_IsString(text)) ? text->valuestring: "";
 	std::string charName = (speaker && cJSON_IsString(speaker)) ? speaker->valuestring : "";
 	std::string spriteStr = (sprite && cJSON_IsString(sprite)) ? sprite->valuestring : "";
+
+	if (sprite && cJSON_IsString(sprite) && std::string(sprite->valuestring).find_first_not_of(" \t\n") != std::string::npos){
+		spriteStr = sprite->valuestring;
+		lastSpriteStr = spriteStr;
+		}
+	else {
+		spriteStr = lastSpriteStr;
+
+	}
+
+
 
 	CharacterCodes anotherOne = getCharacterCodes(spriteStr);
 	
