@@ -7,11 +7,11 @@ const char* dialogues[] = {
 
 	"{\"music\": \"audio/bgm/2.ogg\"}", // This entire thing fails if one entry is wrong // OH GOD IT WORKS.
 
-	"{\"text\":\"REMOVE MONIKA - 2/3 of her is gone\", \"character\" : \"Monika\", \"sprite\" : \" \"}",
-	"{\"text\":\"REMOVE YURI\", \"character\" : \"Yuri\", \"sprite\" : \" \"}",
-	"{\"text\":\"REMOVE NATSUKI\", \"character\" : \"Natsuki\", \"sprite\" : \" \"}",
+	"{\"text\":\"REMOVE MONIKA - 2/3 of her is gone\", \"character\" : \"Monika\", \"sprite\" : \"NULLER\"}",
+	"{\"text\":\"REMOVE YURI\", \"character\" : \"Yuri\", \"sprite\" : \"NULLER\"}",
+	"{\"text\":\"REMOVE NATSUKI\", \"character\" : \"Natsuki\", \"sprite\" : \"NULLER\"}",
 
-	"{\"text\":\"REMOVE SAYORI\", \"character\" : \"Sayori\", \"sprite\" : \" \"}",
+	"{\"text\":\"REMOVE SAYORI\", \"character\" : \"Sayori\", \"sprite\" : \"NULLER\"}",
 
 
 	"{\"text\":\"Heeeeeeeyyy!!\", \"character\" : \"Sayori\", \"sprite\" : \"sayori4p\"}",
@@ -99,7 +99,6 @@ const char* dialogues[] = {
 	"{\"text\": \"C'mon, please?\", \"character\": \"Sayori\", \"sprite\": \"sayori1g\"}",
 	"{\"text\": \"Why do you care so much, anyway?\", \"character\": \"MC\", \"sprite\": \"\"}",
 
-	// I'll write a Python script to automate this. 
 
 };
 

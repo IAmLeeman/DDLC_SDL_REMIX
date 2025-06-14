@@ -1,12 +1,13 @@
 // DOKI DOKI LITERATURE CLUB //
 // PS3 PORT // SDL REMIX
-// SUPAHAXOR // 12/06/2025 //
+// SUPAHAXOR // 14/06/2025 //
 // CharacterCodes.cpp // C++ //
 
 
 #include <SDL.h>
 #include "CharacterCodes.h"
 #include "SpriteRenderer.h"
+#include <optional>
 
 SDL_Texture* CharacterCodes::draw(SDL_Renderer* renderer, SpriteBatch* batch, Transform spriteTransform) const {
 	
@@ -34,6 +35,7 @@ CharacterCodes sayori5c = { 10,10,10 };
 CharacterCodes yuri1a = { 12, 4, 5 };
 
 CharacterCodes natsuki1a = { 5, 4 ,3 };
+CharacterCodes nuller = {NULL, NULL, NULL}; // This is a nuller for the sprite renderer to use when no character is present/ doesn't work though.
 
-
+ // This is a nuller for the sprite renderer to use when no character is present/ doesn't work though.
 

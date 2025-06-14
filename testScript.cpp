@@ -16,6 +16,7 @@
 #include "DialogueSystem.h"
 #include "cJSON.h"
 #include "characterCodeLookup.h"
+#include <optional>
 
 bool running = true;
 bool waitingForAdvance = true;
@@ -57,6 +58,8 @@ void parseNewLine(const char* dialogues[], int& index) {
 	std::string spriteStr = (sprite && cJSON_IsString(sprite)) ? sprite->valuestring : "";
 
 	CharacterCodes anotherOne = getCharacterCodes(spriteStr);
+	
+	
 
 	
 	dialogue->AddLine(lineStr, charName, anotherOne); // sprite is not a string in this but a CharacterCode.
@@ -114,6 +117,8 @@ void ch_0(SDL_Renderer* renderer, TTF_Font* font) {
 		SDL_SetTextureBlendMode(natsukiTexture, SDL_BLENDMODE_BLEND);
 
 		LoadBackground(renderer, backgroundBatch, 30); // Load the background image
+
+		
 
 		SDL_RenderCopy(renderer, sayoriTexture, NULL, sayoriRect);
 		SDL_RenderCopy(renderer, monikaTexture, NULL, monikaRect); // Render Sayori and Monika textures

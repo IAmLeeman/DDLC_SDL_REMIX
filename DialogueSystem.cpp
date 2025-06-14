@@ -1,6 +1,6 @@
 // DOKI DOKI LITERATURE CLUB //
 // PS3 PORT // SDL REMIX
-// SUPAHAXOR // 11/06/2025 //
+// SUPAHAXOR // 14/06/2025 //
 // DialogueSystem.cpp // C++ //
 
 #include "DialogueSystem.h"
@@ -14,6 +14,7 @@
 #include <iostream>
 #include <SDL_mixer.h> // For music handling
 #include <fstream> // For file handling
+#include <optional> // For optional character expressions
 
 extern SDL_Texture* textBoxTexture;
 std::vector<CharacterCodes> characterExpressions;

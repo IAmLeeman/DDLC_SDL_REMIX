@@ -4,6 +4,7 @@
 
 #include <string>
 #include "CharacterCodes.h"
+#include <optional>
 
 CharacterCodes getCharacterCodes(const std::string& name);
 

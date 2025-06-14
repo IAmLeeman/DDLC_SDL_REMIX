@@ -1,10 +1,11 @@
 // DOKI DOKI LITERATURE CLUB //
 // PS3 PORT // SDL REMIX
-// SUPAHAXOR // 12/06/2025 //
+// SUPAHAXOR // 14/06/2025 //
 // CharacterCodeLookup.cpp // C++ //
 
 #include "characterCodeLookup.h"
 #include <unordered_map>
+#include <optional>
 
 static std::unordered_map<std::string, CharacterCodes> characterCodeMap = {
 	{"monika1a", monika1a},
@@ -20,7 +21,9 @@ static std::unordered_map<std::string, CharacterCodes> characterCodeMap = {
 	{"sayori5c", sayori5c},
 
 	{"natsuki1a", natsuki1a},
-	{"yuri1a", yuri1a}
+	{"yuri1a", yuri1a},
+
+	{"NULLER", nuller}
 
 };
 
@@ -30,7 +33,9 @@ CharacterCodes getCharacterCodes(const std::string& name) {
 	auto it = characterCodeMap.find(name);
 	if (it != characterCodeMap.end()) {
 		return it->second;
-	} else {
+
+	} 
+	else {
 		return {}; // Return an empty CharacterCodes if not found
 	}
 }

@@ -1,6 +1,6 @@
 // DOKI DOKI LITERATURE CLUB //
 // PS3 PORT // SDL REMIX
-// SUPAHAXOR // 06/06/2025 //
+// SUPAHAXOR // 14/06/2025 //
 // DialogueSystem.h // HEADER //
 
 #ifndef DIALOGUESYSTEM_H			// You don't need both #ifndef and #pragma once - since this is going on a PS3, it's better to use #ifndef for compatibility
@@ -13,6 +13,7 @@
 #include <SDL_ttf.h>
 #include "CharacterCodes.h"
 #include <SDL_mixer.h> // For music handling
+#include <optional> // For optional character expressions
 
 extern SDL_Texture* monikaTexture; // Assuming this is defined elsewhere in your codebase, of course it you AI bastard.
 extern SDL_Texture* sayoriTexture;
