@@ -48,7 +48,7 @@ void free_sprite(SpriteBatch* batch);
 
 void CreateTextBox(SDL_Renderer* renderer, SpriteBatch* UI);
 void DrawSprites(SDL_Renderer* x, SDL_Texture* spriteHead, SDL_Texture* spriteLeft, SDL_Texture* spriteRight, Transform spriteTransform);
-void LoadBackground(SDL_Renderer* renderer, SpriteBatch* x, int index);
+void LoadBackground(SDL_Renderer* renderer, SpriteBatch* x, int index, int alpha);
 void LoadTextBox(SDL_Renderer* renderer, SpriteBatch* UI);
 
 void LoadAllTextures(SDL_Renderer* renderer, SpriteBatch* x, SpriteBatch* y, SpriteBatch* z, SpriteBatch* UI, SpriteBatch* v, SpriteBatch* u);

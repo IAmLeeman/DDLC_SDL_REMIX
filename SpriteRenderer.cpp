@@ -100,8 +100,9 @@ void DrawSprites(SDL_Renderer* x, SDL_Texture* spriteHead, SDL_Texture* spriteLe
 	}
 }
 
-void LoadBackground(SDL_Renderer* renderer, SpriteBatch* x, int index) {
+void LoadBackground(SDL_Renderer* renderer, SpriteBatch* x, int index, int alpha) {
 	backgroundTexture = x[0].surfaces[index]; // Loads background texture from RAM.
+	SDL_SetTextureAlphaMod(backgroundTexture, alpha); // Set the alpha value for the background texture.
 	SDL_RenderCopy(renderer, backgroundTexture, NULL, NULL); // NULL destRect means it will render to the whole screen.
 }
 

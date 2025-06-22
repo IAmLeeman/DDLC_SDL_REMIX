@@ -25,6 +25,7 @@ bool mainMenu = false; // Flag to indicate if we are in the main menu#
 bool firstRun = true; // Flag to indicate if this is the first run of the game
 
 int index = 0; // Index for dialogue lines
+int alpha = 0; // Alpha value for background texture
 
 //SDL_Rect testRect = { 0, 0 , 1280, 720 };  // SO IT'S (X, Y, WIDTH, HEIGHT) // NOT (X, Y, XZOOM, YZOOM) // THIS AIN'T RENPY //
 
@@ -39,6 +40,7 @@ void parseNewLine(const char* dialogues[], int& index) {
 
 	if (dialogues[index] == nullptr) {
 		firstRun = false;								// Not correct but for testing purposes it works.
+		index = 0;										// Reset index to 0 for the next run
 		return;											// No more dialogue to parse
 	}
 	cJSON* root = cJSON_Parse(dialogues[index]);
@@ -117,6 +119,11 @@ void ch_0(SDL_Renderer* renderer, TTF_Font* font) {
 	while (running) {
 		Uint32 frameStart = SDL_GetTicks();
 
+		if (music != currentMusic) {
+			Mix_PlayMusic(currentMusic, -1); // Play music if it has changed
+		}
+		music = currentMusic; // Update current music
+
 		if (firstRun == true) {
 
 			HandleEventsAndAdvance(renderer, waitingForAdvance);
@@ -124,11 +131,15 @@ void ch_0(SDL_Renderer* renderer, TTF_Font* font) {
 
 			SDL_RenderClear(renderer);
 			
-			LoadBackground(renderer, backgroundBatch, 39);
+			LoadBackground(renderer, backgroundBatch, 39, alpha);
 			LoadTextBox(renderer, UIBatch); // Load the text box
 			CreateTextBox(renderer, UIBatch);
 			dialogue->Render(renderer, textRect.x, textRect.y);
 			SDL_RenderPresent(renderer);
+			
+			if (alpha < 255) {
+				alpha++;
+			}
 			
 			
 		}
@@ -142,7 +153,7 @@ void ch_0(SDL_Renderer* renderer, TTF_Font* font) {
 			SDL_SetTextureBlendMode(yuriTexture, SDL_BLENDMODE_BLEND);
 			SDL_SetTextureBlendMode(natsukiTexture, SDL_BLENDMODE_BLEND);
 
-			LoadBackground(renderer, backgroundBatch, 30); // Load the background image
+			LoadBackground(renderer, backgroundBatch, 30, 255); // Load the background image // alpha channel modifier added.
 
 			SDL_RenderCopy(renderer, sayoriTexture, NULL, sayoriRect);
 			SDL_RenderCopy(renderer, monikaTexture, NULL, monikaRect); // Render Sayori and Monika textures
@@ -159,14 +170,10 @@ void ch_0(SDL_Renderer* renderer, TTF_Font* font) {
 			LoadTextBox(renderer, UIBatch); // Load the text box
 			dialogue->Render(renderer, textRect.x, textRect.y);
 
-
 			SDL_RenderPresent(renderer); // Present the renderer
 		}
 
-		if (music != currentMusic) {
-			Mix_PlayMusic(currentMusic, -1); // Play music if it has changed
-		}
-		music = currentMusic; // Update current music
+		
 
 		/*if (mainMenu == true) {
 			dialogue->ChangeMusic("audio/bgm/1.ogg"); // Change to main menu music

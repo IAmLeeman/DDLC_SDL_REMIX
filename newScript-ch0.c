@@ -5,18 +5,22 @@ const char* firstRunDialogues[] = {
 	"{\"text\": \"This game is not suitable for children or those who are easily disturbed.\", \"character\": \" \", \"sprite\": \" \"}",
 	"{\"text\": \"Individuals suffering from anxiety or depression may not have a safe experience playing this game. For content warnings, please visit: https://ddlc.moe/warning.html\", \"character\": \" \", \"sprite\": \" \"}",
 	"{\"text\": \"By playing Doki Doki Literature Club. you agree that you are at least 13 years of age, and you consent to your exposure of highly disturbing content.\", \"character\": \" \", \"sprite\": \" \"}",
+	// Need another change to the background here.
 };
 
 
 const char* dialogues[] = {
 
-	"{\"music\": \"audio/bgm/2.ogg\"}", // This entire thing fails if one entry is wrong // OH GOD IT WORKS.
+	
 
 	"{\"text\":\"REMOVE MONIKA - 2/3 of her is gone\", \"character\" : \"Monika\", \"sprite\" : \"NULLER\"}",
 	"{\"text\":\"REMOVE YURI\", \"character\" : \"Yuri\", \"sprite\" : \"NULLER\"}",
 	"{\"text\":\"REMOVE NATSUKI\", \"character\" : \"Natsuki\", \"sprite\" : \"NULLER\"}",
 
+
 	"{\"text\":\"REMOVE SAYORI\", \"character\" : \"Sayori\", \"sprite\" : \"NULLER\"}",
+
+	"{\"music\": \"audio/bgm/2.ogg\"}", // This entire thing fails if one entry is wrong // OH GOD IT WORKS.
 
 
 	"{\"text\":\"Heeeeeeeyyy!!\", \"character\" : \"Sayori\", \"sprite\" : \"sayori4p\"}",
