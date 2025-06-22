@@ -16,11 +16,13 @@
 #include "DialogueSystem.h"
 #include "cJSON.h"
 #include "characterCodeLookup.h"
-//#include <optional>
+//#include <optional> // This is too complicated, just used a hacky workaround making NULL a transparent texture.
 #include <string>
 
 bool running = true;
 bool waitingForAdvance = true;
+bool mainMenu = false; // Flag to indicate if we are in the main menu#
+bool firstRun = true; // Flag to indicate if this is the first run of the game
 
 int index = 0; // Index for dialogue lines
 
@@ -67,12 +69,7 @@ void parseNewLine(const char* dialogues[], int& index) {
 
 	}
 
-
-
 	CharacterCodes anotherOne = getCharacterCodes(spriteStr);
-	
-	
-
 	
 	dialogue->AddLine(lineStr, charName, anotherOne); // sprite is not a string in this but a CharacterCode.
 	std::cout << "Line added: " << lineStr << " by " << charName << " with sprite " << spriteStr << std::endl;
@@ -81,8 +78,6 @@ void parseNewLine(const char* dialogues[], int& index) {
 	index++;
 	cJSON_Delete(root);
 	return;
-	
-
 }
 
 void HandleEventsAndAdvance(SDL_Renderer* renderer, bool& waitingForAdvance) {
@@ -96,7 +91,6 @@ void HandleEventsAndAdvance(SDL_Renderer* renderer, bool& waitingForAdvance) {
 			if (event.button.button == SDL_BUTTON_LEFT) {
 				parseNewLine(dialogues, index);
 				dialogue->Advance(renderer);
-				
 				waitingForAdvance = false;
 			}
 
@@ -119,6 +113,17 @@ void ch_0(SDL_Renderer* renderer, TTF_Font* font) {
 			Mix_PlayMusic(currentMusic, -1); // Play music if it has changed
 		}
 		music = currentMusic; // Update current music
+
+		if (mainMenu == true) {
+			dialogue->ChangeMusic("audio/bgm/1.ogg"); // Change to main menu music
+			// Handle main menu logic here
+			// 
+			// For now, just break the loop to exit
+			SDL_Delay(1000); // Simulate a delay for the main menu
+			break;
+		}
+
+		
 
 		HandleEventsAndAdvance(renderer, waitingForAdvance);
 		SDL_RenderClear(renderer); // clear the screen

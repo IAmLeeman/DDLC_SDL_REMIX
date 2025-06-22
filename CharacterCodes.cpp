@@ -38,5 +38,5 @@ CharacterCodes yuri1a = { 13, 5, 6 };
 CharacterCodes natsuki1a = { 6, 5 ,4 };
 CharacterCodes nuller = {NULL, NULL, NULL}; // This is a nuller for the sprite renderer to use when no character is present/ just renders a transparent texture.
 
- // This is a nuller for the sprite renderer to use when no character is present/ doesn't work though.
+
 
