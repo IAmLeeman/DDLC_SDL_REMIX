@@ -30,6 +30,7 @@ extern "C" {
 #endif
 
 extern const char* dialogues[];
+extern const char* firstRunDialogues[];
 #ifdef __cplusplus
 }
 #endif

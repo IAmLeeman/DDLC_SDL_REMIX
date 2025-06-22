@@ -38,7 +38,8 @@ static std::string lastSpriteStr = "";
 void parseNewLine(const char* dialogues[], int& index) {
 
 	if (dialogues[index] == nullptr) {
-		return; // No more dialogue to parse
+		firstRun = false;								// Not correct but for testing purposes it works.
+		return;											// No more dialogue to parse
 	}
 	cJSON* root = cJSON_Parse(dialogues[index]);
 
@@ -89,9 +90,16 @@ void HandleEventsAndAdvance(SDL_Renderer* renderer, bool& waitingForAdvance) {
 		if (event.type == SDL_MOUSEBUTTONDOWN && waitingForAdvance) {
 
 			if (event.button.button == SDL_BUTTON_LEFT) {
-				parseNewLine(dialogues, index);
-				dialogue->Advance(renderer);
-				waitingForAdvance = false;
+				if (firstRun == true) {
+					parseNewLine(firstRunDialogues, index);
+					dialogue->Advance(renderer);
+					waitingForAdvance = false; // Set to false to wait for the next click
+				}
+				else {
+					parseNewLine(dialogues, index);
+					dialogue->Advance(renderer);
+					waitingForAdvance = false;
+				}
 			}
 
 		}
@@ -109,51 +117,69 @@ void ch_0(SDL_Renderer* renderer, TTF_Font* font) {
 	while (running) {
 		Uint32 frameStart = SDL_GetTicks();
 
+		if (firstRun == true) {
+
+			HandleEventsAndAdvance(renderer, waitingForAdvance);
+			
+
+			SDL_RenderClear(renderer);
+			
+			LoadBackground(renderer, backgroundBatch, 39);
+			LoadTextBox(renderer, UIBatch); // Load the text box
+			CreateTextBox(renderer, UIBatch);
+			dialogue->Render(renderer, textRect.x, textRect.y);
+			SDL_RenderPresent(renderer);
+			
+			
+		}
+		else {
+			
+			HandleEventsAndAdvance(renderer, waitingForAdvance);
+			SDL_RenderClear(renderer); // clear the screen
+
+			SDL_SetTextureBlendMode(sayoriTexture, SDL_BLENDMODE_BLEND);  // Ratchet way of doing this, but it works for now
+			SDL_SetTextureBlendMode(monikaTexture, SDL_BLENDMODE_BLEND);
+			SDL_SetTextureBlendMode(yuriTexture, SDL_BLENDMODE_BLEND);
+			SDL_SetTextureBlendMode(natsukiTexture, SDL_BLENDMODE_BLEND);
+
+			LoadBackground(renderer, backgroundBatch, 30); // Load the background image
+
+			SDL_RenderCopy(renderer, sayoriTexture, NULL, sayoriRect);
+			SDL_RenderCopy(renderer, monikaTexture, NULL, monikaRect); // Render Sayori and Monika textures
+			SDL_RenderCopy(renderer, yuriTexture, NULL, yuriRect);
+			SDL_RenderCopy(renderer, natsukiTexture, NULL, natsukiRect); // Render Natsuki texture
+
+
+			//sayori4p.draw(renderer, sayoriBatch, monikaTransform); // Draws Sayori4p sprite
+
+			/// Need to add a sytem to handle the sprite update with the dialogue system
+
+			//monika1a.draw(renderer, monikaBatch, t44);
+
+			LoadTextBox(renderer, UIBatch); // Load the text box
+			dialogue->Render(renderer, textRect.x, textRect.y);
+
+
+			SDL_RenderPresent(renderer); // Present the renderer
+		}
+
 		if (music != currentMusic) {
 			Mix_PlayMusic(currentMusic, -1); // Play music if it has changed
 		}
 		music = currentMusic; // Update current music
 
-		if (mainMenu == true) {
+		/*if (mainMenu == true) {
 			dialogue->ChangeMusic("audio/bgm/1.ogg"); // Change to main menu music
 			// Handle main menu logic here
 			// 
 			// For now, just break the loop to exit
-			SDL_Delay(1000); // Simulate a delay for the main menu
-			break;
-		}
+			//SDL_Delay(1000); // Simulate a delay for the main menu
+			continue;
+		}*/
 
 		
 
-		HandleEventsAndAdvance(renderer, waitingForAdvance);
-		SDL_RenderClear(renderer); // clear the screen
-
-		SDL_SetTextureBlendMode(sayoriTexture, SDL_BLENDMODE_BLEND);  // Ratchet way of doing this, but it works for now
-		SDL_SetTextureBlendMode(monikaTexture, SDL_BLENDMODE_BLEND);
-		SDL_SetTextureBlendMode(yuriTexture, SDL_BLENDMODE_BLEND);
-		SDL_SetTextureBlendMode(natsukiTexture, SDL_BLENDMODE_BLEND);
-
-		LoadBackground(renderer, backgroundBatch, 30); // Load the background image
-
 		
-
-		SDL_RenderCopy(renderer, sayoriTexture, NULL, sayoriRect);
-		SDL_RenderCopy(renderer, monikaTexture, NULL, monikaRect); // Render Sayori and Monika textures
-		SDL_RenderCopy(renderer, yuriTexture, NULL, yuriRect);
-		SDL_RenderCopy(renderer, natsukiTexture, NULL, natsukiRect); // Render Natsuki texture
-
-
-		//sayori4p.draw(renderer, sayoriBatch, monikaTransform); // Draws Sayori4p sprite
-
-		/// Need to add a sytem to handle the sprite update with the dialogue system
-
-		//monika1a.draw(renderer, monikaBatch, t44);
-
-		LoadTextBox(renderer, UIBatch); // Load the text box
-		dialogue->Render(renderer, textRect.x, textRect.y);
-
-
-		SDL_RenderPresent(renderer); // Present the renderer
 
 		Uint32 frameTime = SDL_GetTicks() - frameStart;
 		if (frameTime < frameDelay) {

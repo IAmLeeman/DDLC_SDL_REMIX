@@ -43,8 +43,9 @@ bool initAudio() {
 }
 
 void InitDialogue(SDL_Renderer* renderer, TTF_Font* font) {
+
     dialogue = new DialogueSystem(renderer, font);
-    dialogueInitialized = true; // Set the flag to true
+    /*dialogueInitialized = true; // Set the flag to true
     dialogue->AddLine("I LOVE YOU SUPAHAXOR", "Sayori", sayori4p);
     dialogue->AddLine("IDI NAHUI BLYAT", "Monika", monika1a);
     dialogue->AddLine("Ah nu cheeki breeki i v damke", "Sayori", sayori4p); // Lines for testing purposes, system will read each line at runtime.
@@ -66,7 +67,7 @@ void InitDialogue(SDL_Renderer* renderer, TTF_Font* font) {
     // Install cJSON to create the lazy loader.
 
 	dialogue->AddLine("Song changed to 1.ogg", "Monika", monika1a); // This is a test line to see if the dialogue system works, it will not be displayed in the game.
-    
+    */
 }
 bool initTTF() {                // Initialize the TTF library, will not work on a PS3 but for debugging purposes it is useful to have this function.
     if (TTF_Init() == -1) {
@@ -125,6 +126,7 @@ int main(int argc, char* argv[]) {
     backgroundBatch = LoadSpriteFolder("images/bg", renderer);
 	sayoriBatch = LoadSpriteFolder("images/sayori", renderer);
 	UIBatch = LoadSpriteFolder("gui", renderer); // Load the UI batch, will require tweaking for folders in the directory
+    
     yuriBatch = LoadSpriteFolder("images/yuri", renderer);
 	natsukiBatch = LoadSpriteFolder("images/natsuki", renderer); // Load the natsuki batch, will require tweaking for folders in the directory
 

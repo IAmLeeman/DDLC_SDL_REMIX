@@ -1,6 +1,11 @@
 
 #include "cJSON.h"
 
+const char* firstRunDialogues[] = {
+	"{\"text\": \"This game is not suitable for children or those who are easily disturbed.\", \"character\": \" \", \"sprite\": \" \"}",
+	"{\"text\": \"Individuals suffering from anxiety or depression may not have a safe experience playing this game. For content warnings, please visit: https://ddlc.moe/warning.html\", \"character\": \" \", \"sprite\": \" \"}",
+	"{\"text\": \"By playing Doki Doki Literature Club. you agree that you are at least 13 years of age, and you consent to your exposure of highly disturbing content.\", \"character\": \" \", \"sprite\": \" \"}",
+};
 
 
 const char* dialogues[] = {
