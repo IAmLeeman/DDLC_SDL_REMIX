@@ -1,7 +1,7 @@
 
 // DOKI DOKI LITERATURE CLUB //
 // PS3 PORT // SDL REMIX
-// SUPAHAXOR // 11/06/2025 //
+// SUPAHAXOR // 22/06/2025 //
 // GAME IS COPYRIGHT TO TEAM SALVATO //
 
 // Test script for the game engine
@@ -36,7 +36,10 @@ const int frameDelay = 1000 / FPS;
 
 static std::string lastSpriteStr = "";
 
-void parseNewLine(const char* dialogues[], int& index) {
+std::string characterStr = "";
+std::string emotionStr = "";
+
+void parseNewLine(const char* dialogues[], int& index, SDL_Renderer* renderer) {
 
 	if (dialogues[index] == nullptr) {
 		firstRun = false;								// Not correct but for testing purposes it works.
@@ -54,7 +57,40 @@ void parseNewLine(const char* dialogues[], int& index) {
 		cJSON_Delete(root); // Clean up the JSON object
 		return;
 	}
+	cJSON* background = cJSON_GetObjectItem(root, "imgIndex");
+	if (background && cJSON_IsString(background)) {
+		std::string backgroundPath = background->valuestring;
+		std::cout << "Background switching to: " << backgroundPath << std::endl;
+		LoadBackground(renderer, backgroundBatch, std::stoi(background->valuestring), 255); // Load the background image
+		index++;
+		cJSON_Delete(root); // Clean up the JSON object
+		return;
+	}
 
+	cJSON* command = cJSON_GetObjectItem(root, "command");
+	if (command && cJSON_IsString(command)) {
+		std::string commandStr = command->valuestring;
+		if (commandStr == "show") {
+			printf("Command 'show' detected, showing Sayori sprite.\n");
+		}
+		cJSON* character = cJSON_GetObjectItem(root, "character");
+		if (character && cJSON_IsString(character)) {
+			characterStr = std::string(character->valuestring);
+		}
+		cJSON* emotion = cJSON_GetObjectItem(root, "emotion");
+		if (emotion && cJSON_IsString(emotion)) {
+			emotionStr = std::string(emotion->valuestring);
+		}
+		else {
+			std::cout << "No emotion specified, using default." << std::endl;
+		}
+		std::string fullStr = characterStr + emotionStr;
+		CharacterCodes code = getCharacterCodes(fullStr);
+		dialogue->AddLine("Command executed: " + commandStr, characterStr, code); // Add the command to the dialogue system
+		index++; // Increment the index to move to the next dialogue line
+		cJSON_Delete(root); // Clean up the JSON object
+		return;
+	}
 	cJSON* speaker = cJSON_GetObjectItem(root, "character");
 	cJSON* text = cJSON_GetObjectItem(root, "text");
 	cJSON* sprite = cJSON_GetObjectItem(root, "sprite"); // This puts in a string of "sayori4p" or "monika1a" etc, which is actually a CharacterCode enum value.
@@ -93,12 +129,12 @@ void HandleEventsAndAdvance(SDL_Renderer* renderer, bool& waitingForAdvance) {
 
 			if (event.button.button == SDL_BUTTON_LEFT) {
 				if (firstRun == true) {
-					parseNewLine(firstRunDialogues, index);
+					parseNewLine(firstRunDialogues, index, renderer);
 					dialogue->Advance(renderer);
 					waitingForAdvance = false; // Set to false to wait for the next click
 				}
 				else {
-					parseNewLine(dialogues, index);
+					parseNewLine(dialogues, index, renderer);
 					dialogue->Advance(renderer);
 					waitingForAdvance = false;
 				}
@@ -123,6 +159,10 @@ void ch_0(SDL_Renderer* renderer, TTF_Font* font) {
 			Mix_PlayMusic(currentMusic, -1); // Play music if it has changed
 		}
 		music = currentMusic; // Update current music
+
+		//if (backgroundTexture != currentBackgroundTexture) {
+			
+		//}
 
 		if (firstRun == true) {
 

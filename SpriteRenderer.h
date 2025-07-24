@@ -9,10 +9,6 @@ extern SDL_Texture* spriteRight; // Hardcoded to test spriteRenderer - will requ
 extern SDL_Texture* backgroundTexture;
 extern SDL_Rect textRect;
 
-
-
-
-
 #ifndef SPRITERENDERER_H
 #define SPRITERENDERER_H
 

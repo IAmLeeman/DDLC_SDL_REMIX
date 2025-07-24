@@ -99,7 +99,6 @@ void DialogueSystem::Advance(SDL_Renderer* renderer) {
 				sayoriRect = new SDL_Rect; // Initialize newRect if it doesn't exist
 			}
 
-			
 			sayoriRect->x = static_cast<int>(t44.x);
 			sayoriRect->y = static_cast<int>(t44.y);
 			sayoriRect->w = texWidth;

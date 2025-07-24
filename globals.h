@@ -12,8 +12,6 @@
 #include <SDL_ttf.h>
 #include "DialogueSystem.h"
 
-
-
 extern SpriteBatch* backgroundBatch;
 extern SpriteBatch* monikaBatch;
 extern SpriteBatch* sayoriBatch;

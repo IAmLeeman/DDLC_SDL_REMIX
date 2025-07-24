@@ -1,3 +1,7 @@
+// DOKI DOKI LITERATURE CLUB //
+// PS3 PORT // SDL REMIX
+// SUPAHAXOR // 22/06/2025 //
+// newScript-ch0.c // C //
 
 #include "cJSON.h"
 
@@ -5,7 +9,8 @@ const char* firstRunDialogues[] = {
 	"{\"text\": \"This game is not suitable for children or those who are easily disturbed.\", \"character\": \" \", \"sprite\": \" \"}",
 	"{\"text\": \"Individuals suffering from anxiety or depression may not have a safe experience playing this game. For content warnings, please visit: https://ddlc.moe/warning.html\", \"character\": \" \", \"sprite\": \" \"}",
 	"{\"text\": \"By playing Doki Doki Literature Club. you agree that you are at least 13 years of age, and you consent to your exposure of highly disturbing content.\", \"character\": \" \", \"sprite\": \" \"}",
-	// Need another change to the background here.
+	"{\"background\": \"UIBatch\", \"imgIndex\": \"40\"}",
+	"{\"text\": \"Doki Doki Literature Club! DEBUG\", \"character\": \" \", \"sprite\": \" \"}",
 };
 
 
@@ -13,12 +18,6 @@ const char* dialogues[] = {
 
 	
 
-	"{\"text\":\"REMOVE MONIKA - 2/3 of her is gone\", \"character\" : \"Monika\", \"sprite\" : \"NULLER\"}",
-	"{\"text\":\"REMOVE YURI\", \"character\" : \"Yuri\", \"sprite\" : \"NULLER\"}",
-	"{\"text\":\"REMOVE NATSUKI\", \"character\" : \"Natsuki\", \"sprite\" : \"NULLER\"}",
-
-
-	"{\"text\":\"REMOVE SAYORI\", \"character\" : \"Sayori\", \"sprite\" : \"NULLER\"}",
 
 	"{\"music\": \"audio/bgm/2.ogg\"}", // This entire thing fails if one entry is wrong // OH GOD IT WORKS.
 
@@ -33,6 +32,7 @@ const char* dialogues[] = {
 	"{\"text\":\"But if she's going to chase after me like this, I almost feel better off running away.\", \"character\" : \" \", \"sprite\": \" \"}",
 	"{\"text\":\"However, I just sigh and idle in front of the crosswalk and let Sayori catch up to me.\", \"character\" : \" \", \"sprite\": \" \"}",
 
+	"{\"command\": \"show\", \"character\": \"sayori\", \"emotion\": \"4p\", \"zorder\": \"2\", \"transform\": \"t11\"}" // Doesn't parse correctly.
 	"{\"text\":\"Haaahhh...haaahhh...\", \"character\" : \"Sayori\", \"sprite\": \"sayori4p\"}",
 
 

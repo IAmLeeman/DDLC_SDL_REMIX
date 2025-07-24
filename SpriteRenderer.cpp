@@ -166,8 +166,6 @@ void LoadAllTextures(SDL_Renderer* renderer, SpriteBatch* x, SpriteBatch* y, Spr
 		return;
 	}
 
-	
-	
 	if (x && x[0].surfaces && x[0].count >= 2) {
 		// safe to access x[10].surfaces[2]
 	}
