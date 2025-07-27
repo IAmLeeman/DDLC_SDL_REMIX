@@ -1,7 +1,7 @@
 
 // DOKI DOKI LITERATURE CLUB //
 // PS3 PORT // SDL REMIX
-// SUPAHAXOR // 22/06/2025 //
+// SUPAHAXOR // 24/07/2025 //
 // GAME IS COPYRIGHT TO TEAM SALVATO //
 
 // Test script for the game engine
@@ -83,6 +83,13 @@ void parseNewLine(const char* dialogues[], int& index, SDL_Renderer* renderer) {
 		}
 		else {
 			std::cout << "No emotion specified, using default." << std::endl;
+		}
+		cJSON* transform = cJSON_GetObjectItem(root, "transform");
+		if (transform && cJSON_IsString(transform)) {
+			std::string transformStr = transform->valuestring;
+		}
+		else {
+			std::cout << "No transform specified, using default." << std::endl;
 		}
 		std::string fullStr = characterStr + emotionStr;
 		CharacterCodes code = getCharacterCodes(fullStr);

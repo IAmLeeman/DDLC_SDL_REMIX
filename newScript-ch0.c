@@ -22,44 +22,39 @@ const char* dialogues[] = {
 	"{\"music\": \"audio/bgm/2.ogg\"}", // This entire thing fails if one entry is wrong // OH GOD IT WORKS.
 
 
-	"{\"text\":\"Heeeeeeeyyy!!\", \"character\" : \"Sayori\", \"sprite\" : \"sayori4p\"}",
-	"{\"text\":\"I see an annoying girl running toward me from the distance, waving her arms in the air like she's totally oblivious to any attention she might draw to herself.\", \"character\" : \" \", \"sprite\" : \" \"};"
-	"{\"text\":\"That girl is Sayori, my neighbor and good friend since we were children.\", \"character\" : \" \", \"sprite\" : \" \"}",
-
-	"{\"text\":\"You know, the kind of friend you'd never see yourself making today, but it just kind of works out because you've known each other for so long?\", \"character\" : \" \", \"sprite\" : \" \"}"
-
-	"{\"text\":\"We used to walk to school together on days like this, but starting around high school she would oversleep more and more frequently, and I would get tired of waiting up.\", \"character\" : \" \", \"sprite\": \" \"}",
-	"{\"text\":\"But if she's going to chase after me like this, I almost feel better off running away.\", \"character\" : \" \", \"sprite\": \" \"}",
-	"{\"text\":\"However, I just sigh and idle in front of the crosswalk and let Sayori catch up to me.\", \"character\" : \" \", \"sprite\": \" \"}",
-
-	"{\"command\": \"show\", \"character\": \"sayori\", \"emotion\": \"4p\", \"zorder\": \"2\", \"transform\": \"t11\"}" // Doesn't parse correctly.
-	"{\"text\":\"Haaahhh...haaahhh...\", \"character\" : \"Sayori\", \"sprite\": \"sayori4p\"}",
-
-
-	"{\"text\":\"Heeeeeeeyyy!!\", \"character\" : \"Sayori\", \"sprite\": \"sayori4p\"}",
-	"{\"text\":\"Heeeeeeeyyy!!\", \"character\" : \"Sayori\", \"sprite\": \"sayori4p\"}",
-	"{\"text\":\"Heeeeeeeyyy!!\", \"character\" : \"Sayori\", \"sprite\": \"sayori4p\"}",
-	"{\"text\":\"Heeeeeeeyyy!!\", \"character\" : \"Sayori\", \"sprite\": \"sayori4p\"}",
-
-	"{\"text\": \"I overslept again!\", \"character\": \"Sayori\", \"sprite\": \" \"}",
-	"{\"text\": \"But I caught you this time!\", \"character\": \"Sayori\", \"sprite\": \" \"}",
-	"{\"text\": \"Maybe, but only because I decided to stop and wait for you.\", \"character\": \"MC\", \"sprite\": \" \"}",
+	"{\"text\": \"Heeeeeeeyyy!!\", \"character\": \"Sayori\", \"sprite\": \"\"}",
+	"{\"text\": \"I see an annoying girl running toward me from the distance, waving her arms in the air like she's totally oblivious to any attention she might draw to herself.\", \"character\": \" \", \"sprite\": \"\"}",
+	"{\"text\": \"That girl is Sayori, my neighbor and good friend since we were children.\", \"character\": \" \", \"sprite\": \"\"}",
+	"{\"text\": \"You know, the kind of friend you'd never see yourself making today, but it just kind of works out because you've known each other for so long?\", \"character\": \" \", \"sprite\": \"\"}",
+	"{\"text\": \"We used to walk to school together on days like this, but starting around high school she would oversleep more and more frequently, and I would get tired of waiting up.\", \"character\": \" \", \"sprite\": \"\"}",
+	"{\"text\": \"But if she's going to chase after me like this, I almost feel better off running away.\", \"character\": \" \", \"sprite\": \"\"}",
+	"{\"text\": \"However, I just sigh and idle in front of the crosswalk and let Sayori catch up to me.\", \"character\": \" \", \"sprite\": \"\"}",
+	"{\"text\": \"Sayori\", \"character\": \" \", \"sprite\": \"\"}",
+	"{\"command\": \"show\", \"character\": \"sayori\", \"emotion\": \"4p\", \"zorder\": \"2\", \"transform\": \"t11\"}",
+	"{\"text\": \"Haaahhh...haaahhh...\", \"character\": \"Sayori\", \"sprite\": \"sayori4p\"}",
+	"{\"text\": \"I overslept again!\", \"character\": \"Sayori\", \"sprite\": \"\"}",
+	"{\"text\": \"But I caught you this time!\", \"character\": \"Sayori\", \"sprite\": \"\"}",
+	"{\"text\": \"Maybe, but only because I decided to stop and wait for you.\", \"character\": \"MC\", \"sprite\": \"\"}",
+	"{\"command\": \"show\", \"character\": \"sayori\", \"emotion\": \"at\", \"zorder\": null, \"transform\": null}",
 	"{\"text\": \"Eeehhhhh, you say that like you were thinking about ignoring me!\", \"character\": \"Sayori\", \"sprite\": \"sayori5c\"}",
 	"{\"text\": \"That's mean, [player]!\", \"character\": \"Sayori\", \"sprite\": \"\"}",
 	"{\"text\": \"Well, if people stare at you for acting weird then I don't want them to think we're a couple or something.\", \"character\": \"MC\", \"sprite\": \"\"}",
+	"{\"command\": \"show\", \"character\": \"sayori\", \"emotion\": \"zorder\", \"zorder\": null, \"transform\": null}",
 	"{\"text\": \"Fine, fine.\", \"character\": \"Sayori\", \"sprite\": \"sayori1a\"}",
 	"{\"text\": \"But you did wait for me, after all.\", \"character\": \"Sayori\", \"sprite\": \"\"}",
 	"{\"text\": \"I guess you don't have it in you to be mean even if you want to~\", \"character\": \"Sayori\", \"sprite\": \"\"}",
 	"{\"text\": \"Whatever you say, Sayori...\", \"character\": \"MC\", \"sprite\": \"\"}",
 	"{\"text\": \"Ehehe~\", \"character\": \"Sayori\", \"sprite\": \"sayori1q\"}",
+	"{\"command\": \"show\", \"character\": \"sayori\", \"emotion\": \"zorder\", \"zorder\": null, \"transform\": null}",
 	"{\"text\": \"We cross the street together and make our way to school.\", \"character\": \" \", \"sprite\": \"\"}",
 	"{\"text\": \"As we draw near, the streets become increasingly speckled with other students making their daily commute.\", \"character\": \" \", \"sprite\": \"\"}",
+	"{\"command\": \"show\", \"character\": \"sayori\", \"emotion\": \"3a\", \"zorder\": \"2\", \"transform\": \"t11\"}",
 	"{\"text\": \"By the way, [player]...\", \"character\": \"Sayori\", \"sprite\": \"\"}",
-	"{\"text\": \"Have you decided on a club to join yet?\", \"character\": \"Sayori\", \"sprite\": \"\"}"
-
+	"{\"text\": \"Have you decided on a club to join yet?\", \"character\": \"Sayori\", \"sprite\": \"\"}",
 	"{\"text\": \"A club?\", \"character\": \"MC\", \"sprite\": \"\"}",
 	"{\"text\": \"I told you already, I'm really not interested in joining any clubs.\", \"character\": \"MC\", \"sprite\": \"\"}",
 	"{\"text\": \"I haven't been looking, either.\", \"character\": \"MC\", \"sprite\": \"\"}",
+	"{\"command\": \"show\", \"character\": \"sayori\", \"emotion\": \"at\", \"zorder\": null, \"transform\": null}",
 	"{\"text\": \"Eh? That's not true!\", \"character\": \"Sayori\", \"sprite\": \"sayori4h\"}",
 	"{\"text\": \"You told me you would join a club this year!\", \"character\": \"Sayori\", \"sprite\": \"\"}",
 	"{\"text\": \"Did I...?\", \"character\": \"MC\", \"sprite\": \"\"}",
@@ -76,6 +71,7 @@ const char* dialogues[] = {
 	"{\"text\": \"No promises, though.\", \"character\": \"MC\", \"sprite\": \"\"}",
 	"{\"text\": \"Will you at least promise me you'll try a little?\", \"character\": \"Sayori\", \"sprite\": \"sayori1h\"}",
 	"{\"text\": \"Yeah, I guess I'll promise you that.\", \"character\": \"MC\", \"sprite\": \"\"}",
+	"{\"command\": \"show\", \"character\": \"sayori\", \"emotion\": \"zorder\", \"zorder\": null, \"transform\": null}",
 	"{\"text\": \"Yaay~!\", \"character\": \"Sayori\", \"sprite\": \"sayori4r\"}",
 	"{\"text\": \"Why do I let myself get lectured by such a carefree girl?\", \"character\": \" \", \"sprite\": \"\"}",
 	"{\"text\": \"More than that, I'm surprised I even let myself relent to her.\", \"character\": \" \", \"sprite\": \"\"}",
@@ -86,6 +82,7 @@ const char* dialogues[] = {
 	"{\"text\": \"Sayori wants me to check out some clubs.\", \"character\": \" \", \"sprite\": \"\"}",
 	"{\"text\": \"I guess I have no choice but to start with the anime club...\", \"character\": \" \", \"sprite\": \"\"}",
 	"{\"text\": \"Hellooo?\", \"character\": \"Sayori\", \"sprite\": \"\"}",
+	"{\"command\": \"show\", \"character\": \"sayori\", \"emotion\": \"1b\", \"zorder\": \"2\", \"transform\": \"t11\"}",
 	"{\"text\": \"Sayori...?\", \"character\": \"MC\", \"sprite\": \"\"}",
 	"{\"text\": \"Sayori must have come into the classroom while I was spacing out.\", \"character\": \" \", \"sprite\": \"\"}",
 	"{\"text\": \"I look around and realize that I'm the only one left in the classroom.\", \"character\": \" \", \"sprite\": \"\"}",
@@ -98,6 +95,7 @@ const char* dialogues[] = {
 	"{\"text\": \"Sayori...\", \"character\": \"MC\", \"sprite\": \"\"}",
 	"{\"text\": \"Yeah??\", \"character\": \"Sayori\", \"sprite\": \"sayori4r\"}",
 	"{\"text\": \"...There is no way I'm going to your club.\", \"character\": \"MC\", \"sprite\": \"\"}",
+	"{\"command\": \"show\", \"character\": \"sayori\", \"emotion\": \"at\", \"zorder\": null, \"transform\": null}",
 	"{\"text\": \"Eeeehhhhh?! Meanie!\", \"character\": \"Sayori\", \"sprite\": \"sayori5d\"}",
 	"{\"text\": \"Sayori is vice president of the Literature Club.\", \"character\": \" \", \"sprite\": \"\"}",
 	"{\"text\": \"Not that I was ever aware that she had any interest in literature.\", \"character\": \" \", \"sprite\": \"\"}",
@@ -105,8 +103,16 @@ const char* dialogues[] = {
 	"{\"text\": \"Since she was the first one to show interest after the one who proposed the club, she inherited the title \\\", \"character\": \" \", \"sprite\": \"\"}",
 	"{\"text\": \"That said, my interest in literature is guaranteed to be even less.\", \"character\": \" \", \"sprite\": \"\"}",
 	"{\"text\": \"Yeah. I'm going to the anime club.\", \"character\": \"MC\", \"sprite\": \"\"}",
+	"{\"command\": \"show\", \"character\": \"sayori\", \"emotion\": \"zorder\", \"zorder\": null, \"transform\": null}",
 	"{\"text\": \"C'mon, please?\", \"character\": \"Sayori\", \"sprite\": \"sayori1g\"}",
 	"{\"text\": \"Why do you care so much, anyway?\", \"character\": \"MC\", \"sprite\": \"\"}",
+	"{\"text\": \"Well...\", \"character\": \"Sayori\", \"sprite\": \"sayori5b\"}",
+	"{\"text\": \"I kind of told the club yesterday I would bring in a new member...\", \"character\": \"Sayori\", \"sprite\": \"\"}",
+	"{\"text\": \"And Natsuki made cupcakes and everything...\", \"character\": \"Sayori\", \"sprite\": \"\"}",
+	"{\"text\": \"Ehehe...\", \"character\": \"Sayori\", \"sprite\": \"\"}",
+	"{\"text\": \"Don't make promises you can't keep!\", \"character\": \"MC\", \"sprite\": \"\"}",
+	"{\"text\": \"I can't tell if Sayori is really that much of an airhead, or if she's so cunning as to have planned all of this out.\", \"character\": \" \", \"sprite\": \"\"}",
+
 
 
 };

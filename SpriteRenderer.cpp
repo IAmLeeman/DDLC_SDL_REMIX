@@ -48,6 +48,7 @@ Transform monikaTransform = { 0.0f, -20.0f, 1.5f, 1.5f, 0.0f };			// Default tra
 Transform t44 = { 700.0f, -20.0f, 1.5f, 1.5f, 0.0f };					// Default transform values for sprite on right side.
 Transform textBoxTransform = { 215.0f, 560.0f, 1.0f, 1.0f, 0.0f };		// Default transform values for text box.
 Transform t33 = { 600.0f - 20.0f, 1.5f, 1.5f, 0.0f };
+Transform t11 = { 0.0f, 0.0f, 1.5f, 1.5f, 0.0f }; // Default transform values for sprite on left side.
 
 Transform spriteTransform;
 
