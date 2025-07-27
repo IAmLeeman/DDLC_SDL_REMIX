@@ -53,10 +53,34 @@ extern CharacterCodes sayori1w;
 extern CharacterCodes sayori1x;
 extern CharacterCodes sayori1y;
 
-extern CharacterCodes sayori4p;
+extern CharacterCodes sayori4a;
+extern CharacterCodes sayori4b;
+extern CharacterCodes sayori4c;
+extern CharacterCodes sayori4d;
+extern CharacterCodes sayori4e;
+extern CharacterCodes sayori4f;
+extern CharacterCodes sayori4g;
+extern CharacterCodes sayori4h;
+extern CharacterCodes sayori4i;
 extern CharacterCodes sayori4j;
+extern CharacterCodes sayori4k;
+extern CharacterCodes sayori4l;
+extern CharacterCodes sayori4m;
+extern CharacterCodes sayori4n;
+extern CharacterCodes sayori4o;
+extern CharacterCodes sayori4p;
+extern CharacterCodes sayori4q;
 extern CharacterCodes sayori4r;
+extern CharacterCodes sayori4s;
+extern CharacterCodes sayori4t;
+extern CharacterCodes sayori4u;
+extern CharacterCodes sayori4v;
+extern CharacterCodes sayori4w;
+extern CharacterCodes sayori4x;
+extern CharacterCodes sayori4y;
+
 extern CharacterCodes sayori5c;
+extern CharacterCodes sayori5d;
 
 
 extern CharacterCodes yuri1a;

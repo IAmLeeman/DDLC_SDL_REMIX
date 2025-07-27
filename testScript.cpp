@@ -1,7 +1,7 @@
 
 // DOKI DOKI LITERATURE CLUB //
 // PS3 PORT // SDL REMIX
-// SUPAHAXOR // 24/07/2025 //
+// SUPAHAXOR // 27/07/2025 //
 // GAME IS COPYRIGHT TO TEAM SALVATO //
 
 // Test script for the game engine

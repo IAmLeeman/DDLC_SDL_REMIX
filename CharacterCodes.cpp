@@ -72,6 +72,7 @@ CharacterCodes sayori4l = { 28, 7, 8 };
 CharacterCodes sayori4m = { 29, 7, 8 };
 CharacterCodes sayori4n = { 30, 7, 8 };
 CharacterCodes sayori4o = { 34, 7, 8 };
+CharacterCodes sayori4p = { 35, 7, 8 };
 CharacterCodes sayori4q = { 36, 7, 8 };
 CharacterCodes sayori4r = { 37, 7, 8 };
 CharacterCodes sayori4s = { 38, 7, 8 };
@@ -84,6 +85,7 @@ CharacterCodes sayori4y = { 44, 7, 8 };
 
 
 CharacterCodes sayori5c = { 11,11,11 };
+CharacterCodes sayori5d = { 12,12,12 };
 
 CharacterCodes yuri1a = { 13, 5, 6 };
 

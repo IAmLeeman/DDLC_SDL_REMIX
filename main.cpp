@@ -1,6 +1,6 @@
 // DOKI DOKI LITERATURE CLUB //
 // PS3 PORT // SDL REMIX
-// SUPAHAXOR // 22/06/2025 //
+// SUPAHAXOR // 27/07/2025 //
 // GAME IS COPYRIGHT TO TEAM SALVATO //
 
 #include <SDL.h>
@@ -45,29 +45,7 @@ bool initAudio() {
 void InitDialogue(SDL_Renderer* renderer, TTF_Font* font) {
 
     dialogue = new DialogueSystem(renderer, font);
-    /*dialogueInitialized = true; // Set the flag to true
-    dialogue->AddLine("I LOVE YOU SUPAHAXOR", "Sayori", sayori4p);
-    dialogue->AddLine("IDI NAHUI BLYAT", "Monika", monika1a);
-    dialogue->AddLine("Ah nu cheeki breeki i v damke", "Sayori", sayori4p); // Lines for testing purposes, system will read each line at runtime.
-    dialogue->AddLine("Need to write our names out SUPAHAXOR", "Monika", monika1b);
-    dialogue->AddLine("Monika says some shit", " ", monika1c);
-    dialogue->AddLine("Where is Yuri?", "Sayori", sayori4p);
-    dialogue->AddLine("Monika couldn't move due to dodgy sprite logic", " ", monika1c);
-	dialogue->AddLine("Monika is now moving", "Monika", monika1d);
-	dialogue->AddLine("Sayori says some shit", "Sayori", sayori1a);  // As it stands, the system will only change expression if a name is provided.
-	dialogue->AddLine("DEBUG", "Yuri", yuri1a); // This is a test line to see if the dialogue system works, it will not be displayed in the game.
-    dialogue->AddLine("C++ gang rise up", "Natsuki", natsuki1a);
-	//dialogue->ChangeMusic("audio/bgm/1.ogg"); // Change the music to the first track in the game
-    dialogue->AddLine("Booting into Doki Doki Literature Club...", "Monika", monika5a);
- 
-    // Debug mode over //
 
-    // Current main issue is that this runs all at once, so the song is called immediately within the render loop.
-    // Something called a "lazy loader" is required here.
-    // Install cJSON to create the lazy loader.
-
-	dialogue->AddLine("Song changed to 1.ogg", "Monika", monika1a); // This is a test line to see if the dialogue system works, it will not be displayed in the game.
-    */
 }
 bool initTTF() {                // Initialize the TTF library, will not work on a PS3 but for debugging purposes it is useful to have this function.
     if (TTF_Init() == -1) {
@@ -78,6 +56,8 @@ bool initTTF() {                // Initialize the TTF library, will not work on 
 }
 
 int main(int argc, char* argv[]) {
+
+    SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "2"); // Set the rendering quality to 1 for better performance
 
     SDL_Init(SDL_INIT_AUDIO);
 	initAudio();

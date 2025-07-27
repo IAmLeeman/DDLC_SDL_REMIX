@@ -42,13 +42,39 @@ static std::unordered_map<std::string, CharacterCodes> characterCodeMap = {
 	{"sayori1x", sayori1x},
 	{"sayori1y", sayori1y},
 	
-
-	{"sayori4j", sayori4j},
+	{"sayori4a", sayori4a},
+	{"sayori4b", sayori4b},
+	{"sayori4c", sayori4c},
+	{"sayori4d", sayori4d},
+	{"sayori4e", sayori4e},
+	{"sayori4f", sayori4f},
+	{"sayori4g", sayori4g},
 	{"sayori4h", sayori4h},
-	
+	{"sayori4i", sayori4i},
+	{"sayori4j", sayori4j},
+	{"sayori4k", sayori4k},
+	{"sayori4l", sayori4l},
+	{"sayori4m", sayori4m},
+	{"sayori4n", sayori4n},
+	{"sayori4o", sayori4o},
 	{"sayori4p", sayori4p},
+	{"sayori4q", sayori4q},
 	{"sayori4r", sayori4r},
+	{"sayori4s", sayori4s},
+	{"sayori4t", sayori4t},
+	{"sayori4u", sayori4u},
+	{"sayori4v", sayori4v},
+	{"sayori4w", sayori4w},
+	{"sayori4x", sayori4x},
+	{"sayori4y", sayori4y},
+
+	
+	
+	
+	
 	{"sayori5c", sayori5c},
+	{"sayori5d", sayori5d},
+	
 
 	{"natsuki1a", natsuki1a},
 	{"yuri1a", yuri1a},
