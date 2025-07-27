@@ -55,6 +55,7 @@ extern CharacterCodes sayori1y;
 
 extern CharacterCodes sayori4p;
 extern CharacterCodes sayori4j;
+extern CharacterCodes sayori4r;
 extern CharacterCodes sayori5c;
 
 

@@ -44,7 +44,10 @@ static std::unordered_map<std::string, CharacterCodes> characterCodeMap = {
 	
 
 	{"sayori4j", sayori4j},
+	{"sayori4h", sayori4h},
+	
 	{"sayori4p", sayori4p},
+	{"sayori4r", sayori4r},
 	{"sayori5c", sayori5c},
 
 	{"natsuki1a", natsuki1a},

@@ -57,9 +57,32 @@ CharacterCodes sayori1y = { 44, 3, 4 };
 
 
 
+CharacterCodes sayori4a = { 13 ,7 ,8 };
+CharacterCodes sayori4b = { 14, 7, 8 };
+CharacterCodes sayori4c = { 15, 7, 8 };
+CharacterCodes sayori4d = { 16, 7, 8 };
+CharacterCodes sayori4e = { 17, 7, 8 };
+CharacterCodes sayori4f = { 20, 7, 8 };
+CharacterCodes sayori4g = { 21, 7, 8 };
+CharacterCodes sayori4h = { 24, 7, 8 };
+CharacterCodes sayori4i = { 25, 7, 8 };
+CharacterCodes sayori4j = { 26, 7, 8 };
+CharacterCodes sayori4k = { 27, 7, 8 };
+CharacterCodes sayori4l = { 28, 7, 8 };
+CharacterCodes sayori4m = { 29, 7, 8 };
+CharacterCodes sayori4n = { 30, 7, 8 };
+CharacterCodes sayori4o = { 34, 7, 8 };
+CharacterCodes sayori4q = { 36, 7, 8 };
+CharacterCodes sayori4r = { 37, 7, 8 };
+CharacterCodes sayori4s = { 38, 7, 8 };
+CharacterCodes sayori4t = { 39, 7, 8 };
+CharacterCodes sayori4u = { 40, 7, 8 };
+CharacterCodes sayori4v = { 41, 7, 8 };
+CharacterCodes sayori4w = { 42, 7, 8 };
+CharacterCodes sayori4x = { 43, 7, 8 };
+CharacterCodes sayori4y = { 44, 7, 8 };
 
-CharacterCodes sayori4p = { 35, 7, 8 };
-CharacterCodes sayori4j = { 24, 7, 8 }; // This is the same as sayori4p but with a different expression.
+
 CharacterCodes sayori5c = { 11,11,11 };
 
 CharacterCodes yuri1a = { 13, 5, 6 };
